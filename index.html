@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Güimil — Software Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-zinc-800 selection:text-white">
+
+    <!-- Header / Navbar Minimalista -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-semibold text-sm tracking-tight text-zinc-200 hover:text-white transition">lucas.güimil()</a>
+            <nav class="flex items-center gap-6 text-sm text-zinc-400">
+                <a href="#experiencia" class="hover:text-zinc-100 transition">Experiencia</a>
+                <a href="#skills" class="hover:text-zinc-100 transition">Skills</a>
+                <a href="#contacto" class="hover:text-zinc-100 transition">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
+
+        <!-- Hero Section -->
+        <section class="mb-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Disponible para nuevos retos
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+                Lucas Güimil
+            </h1>
+            <p class="text-xl text-zinc-400 font-medium mb-6">
+                Software Developer especializado en Backend y sistemas críticos.
+            </p>
+            <p class="text-zinc-400 leading-relaxed max-w-2xl mb-8">
+                Perfil técnico versátil con sólida experiencia en el sector bancario. Actualmente enfocado en el desarrollo de productos con agentes de Inteligencia Artificial, arquitecturas de microservicios y optimización de flujos backend.
+            </p>
+            <div class="flex items-center gap-4">
+                <a href="mailto:lucasfguimil00@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-100 text-zinc-950 text-sm font-semibold hover:bg-white transition">
+                    Contactar por email
+                </a>
+                <a href="https://m.linkedin.com/in/lucas-güimil-28bb22243" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-sm font-medium hover:bg-zinc-800 hover:text-white transition">
+                    LinkedIn ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- Experiencia Profesional -->
+        <section id="experiencia" class="mb-16">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">Experiencia Profesional</h2>
+            
+            <div class="space-y-10 border-l border-zinc-800 pl-6 ml-2">
+                
+                <!-- Experiencia 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-zinc-800 border-2 border-zinc-950"></div>
+                    <span class="text-xs text-zinc-500 font-mono">Septiembre 2026 - Actualidad</span>
+                    <h3 class="text-lg font-semibold text-white mt-1">Consultoría Global S.A. | Proyectos Internos</h3>
+                    <p class="text-sm text-zinc-400 font-medium mb-3">Desarrollo de Productos con Agentes de Inteligencia Artificial</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-3">
+                        Diseño e implementación de arquitecturas orientadas a productos impulsados por agentes de Inteligencia Artificial. Integración de LLMs, APIs y flujos automatizados de toma de decisiones, además de investigación y prototipado de microservicios backend.
+                    </p>
+                </div>
+
+                <!-- Experiencia 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-zinc-800 border-2 border-zinc-950"></div>
+                    <span class="text-xs text-zinc-500 font-mono">2023 - Agosto 2026</span>
+                    <h3 class="text-lg font-semibold text-white mt-1">Consultoría Global S.A. (Cliente: Banco Santander)</h3>
+                    <p class="text-sm text-zinc-400 font-medium mb-3">Desarrollador Full Stack / Backend</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed mb-3">
+                        Participación en células ágiles (Cross-Product y Fondos Comunes de Inversión) desarrollando microservicios backend críticos con Node.js y NestJS, aplicando lógica de negocio compleja, validaciones financieras e integración de APIs bancarias.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Próximos Proyectos (Sección preparatoria) -->
+        <section class="mb-16">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">Proyectos</h2>
+            <div class="p-6 rounded-xl border border-dashed border-zinc-800 bg-zinc-900/40 text-center">
+                <p class="text-sm text-zinc-400 mb-1">Próximamente se añadirán nuevos proyectos destacados.</p>
+                <p class="text-xs text-zinc-600">Trabajando actualmente en desarrollos orientados a backend y agentes de IA.</p>
+            </div>
+        </section>
+
+        <!-- Habilidades / Skills -->
+        <section id="skills" class="mb-16">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6">Habilidades Técnicas</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl border border-zinc-900 bg-zinc-900/40">
+                    <h3 class="text-sm font-semibold text-zinc-200 mb-2">Backend & APIs</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Node.js, NestJS, TypeScript, Java (Spring Boot), Python, REST, SOAP, Microservicios.</p>
+                </div>
+                <div class="p-4 rounded-xl border border-zinc-900 bg-zinc-900/40">
+                    <h3 class="text-sm font-semibold text-zinc-200 mb-2">Cloud, DevOps & Data</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed">OpenShift, GCP, Apache Kafka, Redis, PostgreSQL, Oracle, MongoDB.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="border-t border-zinc-900 pt-12">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-4">Contacto</h2>
+            <p class="text-zinc-400 text-sm mb-6">
+                ¿Quieres ponerte en contacto, charlar sobre tecnología o ver más detalles de mi perfil? Escríbeme directamente.
+            </p>
+            <div class="flex flex-wrap gap-4 text-sm">
+                <a href="mailto:lucasfguimil00@gmail.com" class="text-zinc-200 hover:text-white underline underline-offset-4">lucasfguimil00@gmail.com</a>
+                <span class="text-zinc-700">•</span>
+                <a href="https://m.linkedin.com/in/lucas-güimil-28bb22243" target="_blank" rel="noopener noreferrer" class="text-zinc-200 hover:text-white underline underline-offset-4">LinkedIn</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-3xl mx-auto px-6 py-8 border-t border-zinc-900 text-xs text-zinc-600 flex justify-between items-center">
+        <p>© 2026 Lucas Güimil.</p>
+        <p>Diseño minimalista estilo Vercel</p>
+    </footer>
+
+</body>
+</html>
