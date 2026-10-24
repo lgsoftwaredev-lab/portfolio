@@ -23,28 +23,15 @@ export default function Hero({ onCopyEmail, copied }) {
 
       {/* CTA Buttons */}
       <div className="hero-buttons">
-        <a href="#contacto" className="btn-primary">
+        <a 
+          href={`mailto:${portfolioData.personal.contact.email}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn-primary"
+        >
           <span>Iniciar Contacto</span>
           <ArrowRight size={16} />
         </a>
-
-        <button 
-          onClick={onCopyEmail} 
-          className="btn-secondary"
-          title="Copiar email al portapapeles"
-        >
-          {copied ? (
-            <>
-              <Check size={16} style={{ color: 'var(--accent-emerald-light)' }} />
-              <span>Email Copiado</span>
-            </>
-          ) : (
-            <>
-              <Mail size={16} />
-              <span>{portfolioData.personal.contact.email}</span>
-            </>
-          )}
-        </button>
 
         <a 
           href={portfolioData.personal.contact.linkedin} 

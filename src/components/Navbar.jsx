@@ -85,24 +85,6 @@ export default function Navbar({ onCopyEmail, copied }) {
 
         {/* Action Buttons */}
         <div className="nav-actions">
-          <button 
-            onClick={onCopyEmail}
-            className="nav-cta-btn" 
-            title="Copiar email al portapapeles"
-          >
-            {copied ? (
-              <>
-                <Check size={14} className="text-emerald-400" />
-                <span>¡Copiado!</span>
-              </>
-            ) : (
-              <>
-                <Mail size={14} />
-                <span>Email</span>
-              </>
-            )}
-          </button>
-
           <a 
             href={portfolioData.personal.contact.linkedin}
             target="_blank" 
