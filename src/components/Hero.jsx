@@ -79,7 +79,7 @@ export default function Hero({ onCopyEmail, copied }) {
           <div className="terminal-output">
             → <strong style={{ color: '#fff' }}>Agentes de IA:</strong> Orquestación de flujos autónomos con Tool Calling, LangChain y LLMs.
             <br />
-            → <strong style={{ color: '#fff' }}>Microservicios Críticos:</strong> Ecosistemas bancarios transaccionales (Banco Santander FCI) en NestJS, Kafka y Redis.
+            → <strong style={{ color: '#fff' }}>Microservicios Críticos:</strong> Ecosistemas transaccionales de Banca & FinTech (Fondos FCI) en NestJS, Kafka y Redis.
           </div>
 
           <div className="terminal-line" style={{ marginTop: '4px' }}>

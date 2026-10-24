@@ -13,13 +13,13 @@ Portfolio profesional interactivo y de alto impacto desarrollado con **React**, 
   - Efectos de desenfoque (`backdrop-filter: blur`), gradientes suaves y ambient glows dinámicos.
 - **Terminal Interactivo en Hero**: Consola interactiva que simula comandos de estado y stack de producción en vivo.
 - **Simulador Interactivo de Pipelines (Live Demo)**:
-  - Permite a reclutadores y líderes de ingeniería ejecutar flujos reales en tiempo real (ej. *Suscripción a Fondos FCI Banco Santander* o *Pipeline de Agente Autónomo con Tool Calling*).
+  - Permite a reclutadores y líderes de ingeniería ejecutar flujos reales en tiempo real (ej. *Suscripción a Fondos FCI (Banca & FinTech)* o *Pipeline de Agente Autónomo con Tool Calling*).
   - Visualización paso a paso de cada nodo, latencias en milisegundos y resultado de producción.
 - **Showcase de Proyectos con Modal Deep Dive**:
   - Filtros por categoría: *Agentes de IA*, *FinTech & Core Bancario*, *Cloud & Gateways*.
   - Modales con arquitectura detallada, métricas de producción (Throughput, Latency, SLA) y capturas en alta resolución.
 - **Línea de Tiempo Profesional**:
-  - Trayectoria detallada en **Banco Santander** (células FCI & Cross-Product) y **Consultoría Global S.A.** (desarrollo con agentes de IA).
+  - Trayectoria detallada en el sector **Banca & FinTech** (células FCI & Cross-Product) y **Consultoría Global S.A.** (desarrollo con agentes de IA).
 - **Matriz Técnica con Buscador en Vivo**:
   - Búsqueda interactiva de tecnologías (ej. *NestJS, Kafka, LangChain, Python*).
   - Niveles de experiencia y notas de aplicación práctica.

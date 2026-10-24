@@ -9,7 +9,7 @@ export const portfolioData = {
       location: "Buenos Aires, Argentina (Remoto / Híbrido)"
     },
     bio: [
-      "Desarrollador con sólida experiencia en la industria bancaria y financiera de misión crítica (Banco Santander), participando en células ágiles de Fondos Comunes de Inversión y Cross-Product.",
+      "Desarrollador con sólida experiencia en la industria de Banca & FinTech de misión crítica, participando en células ágiles de Fondos Comunes de Inversión y sistemas transaccionales Cross-Product.",
       "Actualmente enfocado en la vanguardia tecnológica: diseño e implementación de productos impulsados por agentes de Inteligencia Artificial, integrando modelos de lenguaje (LLMs), orquestación de herramientas autónomas (Tool Calling) y microservicios backend de alto rendimiento."
     ],
     contact: {
@@ -23,7 +23,7 @@ export const portfolioData = {
   stats: [
     { label: "Experiencia en Producción", value: "3+ Años", highlight: "Sector Financiero & IA" },
     { label: "Arquitectura Principal", value: "Microservicios", highlight: "NestJS & Node.js" },
-    { label: "Sistemas Críticos", value: "Banco Santander", highlight: "Fondos FCI & Core" },
+    { label: "Sistemas Críticos", value: "Banca & FinTech", highlight: "Fondos FCI & Core" },
     { label: "Enfoque Actual", value: "AI Agents", highlight: "LLMs & Flujos Autónomos" }
   ],
 
@@ -49,7 +49,7 @@ export const portfolioData = {
       period: "2023 — Agosto 2026",
       isCurrent: false,
       company: "Consultoría Global S.A.",
-      client: "Cliente: Banco Santander",
+      client: "Sector: Banca & FinTech",
       role: "Desarrollador Full Stack / Backend",
       description: "Participación activa en células ágiles de ingeniería bancaria (Cross-Product y Fondos Comunes de Inversión - FCI), diseñando e implementando microservicios backend de alta criticidad, tolerantes a fallos y con estrictos estándares de seguridad financiera.",
       achievements: [
@@ -185,9 +185,9 @@ export const portfolioData = {
   interactiveScenarios: [
     {
       id: "scenario-1",
-      name: "Suscripción a Fondo Común de Inversión (Santander)",
+      name: "Suscripción a Fondo Común de Inversión (FinTech)",
       category: "Fintech & Microservicios",
-      inputPrompt: "POST /api/v1/fci/subscribe { fundId: 'SANT-ALPHA-01', amount: 500000, currency: 'ARS' }",
+      inputPrompt: "POST /api/v1/fci/subscribe { fundId: 'FCI-ALPHA-01', amount: 500000, currency: 'ARS' }",
       steps: [
         { node: "API Gateway", action: "Validación de firma mTLS, verificación de JWT de sesión y Rate Limiting", status: "success", latency: "4ms" },
         { node: "FCI Microservice", action: "Verificación de scoring financiero, límite normativo y saldo en cuenta corriente", status: "success", latency: "18ms" },
