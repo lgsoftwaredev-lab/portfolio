@@ -1,68 +1,59 @@
 import React from 'react';
-import { Briefcase, CheckCircle2, Calendar } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Experience() {
   return (
-    <section id="experiencia" className="section-wrapper">
-      <div className="section-header">
-        <div className="section-tag">
-          <Briefcase size={14} />
-          <span>Trayectoria Profesional</span>
+    <section id="experiencia" className="section">
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-idx-header">
+          <div className="section-idx-line">
+            <span className="idx-number">01</span>
+            <span className="idx-rule"></span>
+          </div>
+          <h2 className="section-main-title">Experiencia</h2>
         </div>
-        <h2 className="section-title">Experiencia en Producción Crítica</h2>
-        <p className="section-desc">
-          Historial de ingeniería en entornos bancarios de alta exigencia, microservicios transaccionales e investigación aplicada en agentes de IA.
-        </p>
-      </div>
 
-      <div className="timeline-wrapper">
-        <div className="timeline-line"></div>
+        {/* Timeline */}
+        <ol className="experience-timeline">
+          {portfolioData.experiences.map((exp) => (
+            <li key={exp.id} className="timeline-entry">
+              {/* Timeline Indicator Dot */}
+              <span 
+                aria-hidden="true" 
+                className={`timeline-dot ${exp.isCurrent ? 'active' : ''}`}
+              ></span>
 
-        {portfolioData.experiences.map((exp) => (
-          <div 
-            key={exp.id} 
-            className={`timeline-item ${exp.isCurrent ? 'active' : ''}`}
-          >
-            <div className="timeline-node"></div>
-
-            <div className="timeline-card">
-              <div className="timeline-meta">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Calendar size={14} style={{ color: 'var(--accent-emerald-light)' }} />
-                  <span className="timeline-period">{exp.period}</span>
-                </div>
+              <div className="exp-header">
+                <h3 className="exp-role">{exp.role}</h3>
                 {exp.isCurrent && (
-                  <span className="timeline-badge">Rol Actual</span>
+                  <span className="badge-current">Actualmente</span>
                 )}
               </div>
 
-              <h3 className="timeline-role">{exp.role}</h3>
-              <div className="timeline-company">
-                {exp.company} — <span style={{ color: '#fff' }}>{exp.client}</span>
+              <div className="exp-meta">
+                <strong>{exp.company}</strong> · <span>{exp.client}</span> · <time>{exp.period}</time>
               </div>
 
-              <p className="timeline-desc">{exp.description}</p>
+              <p className="exp-summary">{exp.description}</p>
 
-              {/* Achievements */}
-              <ul className="timeline-achievements">
+              <ul className="exp-bullets">
                 {exp.achievements.map((item, idx) => (
-                  <li key={idx} className="timeline-achievement-item">
-                    <CheckCircle2 size={16} />
+                  <li key={idx} className="exp-bullet-item">
+                    <span className="bullet-dot" aria-hidden="true"></span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Tech stack tags */}
-              <div className="project-tags">
+              <div className="tags-row">
                 {exp.skills.map((skill, idx) => (
-                  <span key={idx} className="tech-tag">{skill}</span>
+                  <span key={idx} className="tag-badge">{skill}</span>
                 ))}
               </div>
-            </div>
-          </div>
-        ))}
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

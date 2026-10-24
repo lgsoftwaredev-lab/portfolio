@@ -1,83 +1,84 @@
-import React, { useState } from 'react';
-import { Mail, Check, ArrowRight, ExternalLink, Terminal, Sparkles, Shield, Cpu } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-export default function Hero({ onCopyEmail, copied }) {
-  const [activeTab, setActiveTab] = useState('status');
+export default function Hero() {
+  const { name, lastName, role, headline, quickFacts, contact } = portfolioData.personal;
 
   return (
-    <section id="inicio" className="hero-section">
+    <section id="top" className="hero-section">
+      <div className="container hero-main">
+        {/* Giant Centered Title */}
+        <h1 className="hero-title">
+          {name}<br />
+          {lastName}
+        </h1>
 
-      {/* Main Headline */}
-      <h1 className="hero-title">
-        <span className="gradient-text">{portfolioData.personal.name}</span>
-      </h1>
+        {/* Subtitle */}
+        <span className="hero-subtitle">
+          {role}
+        </span>
 
-      <p className="hero-tagline">
-        Software Developer
-      </p>
+        {/* Value Proposition */}
+        <p className="hero-headline">
+          Desarrollo sistemas backend <strong>de alta criticidad</strong> y productos con <strong>agentes de Inteligencia Artificial</strong> — desde la arquitectura distribuida hasta la ejecución en producción.
+        </p>
 
-      <p className="hero-description">
-        {portfolioData.personal.bio[0]} {portfolioData.personal.bio[1]}
-      </p>
+        {/* Action Buttons */}
+        <div className="hero-actions">
+          <a 
+            href={`mailto:${contact.email}`} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-brand-solid"
+          >
+            <span>Iniciar Contacto</span>
+            <ArrowUpRight size={16} />
+          </a>
 
-      {/* CTA Buttons */}
-      <div className="hero-buttons">
-        <a 
-          href={`mailto:${portfolioData.personal.contact.email}`} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="btn-primary"
-        >
-          <span>Iniciar Contacto</span>
-          <ArrowRight size={16} />
-        </a>
-
-        <a 
-          href={portfolioData.personal.contact.linkedin} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="btn-secondary"
-        >
-          <span>LinkedIn</span>
-          <ExternalLink size={14} />
-        </a>
-      </div>
-
-      {/* Interactive Developer Terminal Widget */}
-      <div className="hero-terminal">
-        <div className="terminal-header">
-          <div className="terminal-dots">
-            <span className="terminal-dot dot-red"></span>
-            <span className="terminal-dot dot-yellow"></span>
-            <span className="terminal-dot dot-green"></span>
-          </div>
-          <span>zsh — lucas@production-node: ~/portfolio</span>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <span style={{ color: 'var(--accent-emerald-light)' }}>● Live node</span>
-          </div>
+          <a 
+            href={contact.linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-outline"
+          >
+            <span>LinkedIn</span>
+            <ArrowUpRight size={15} />
+          </a>
         </div>
 
-        <div className="terminal-content">
-          <div className="terminal-line">
-            <span className="terminal-prompt">$</span>
-            <span className="terminal-cmd">lucas.getCurrentFocus()</span>
-          </div>
-          <div className="terminal-output">
-            → <strong style={{ color: '#fff' }}>Agentes de IA:</strong> Orquestación de flujos autónomos con Tool Calling, LangChain y LLMs.
-            <br />
-            → <strong style={{ color: '#fff' }}>Microservicios Críticos:</strong> Ecosistemas transaccionales de Banca & FinTech (Fondos FCI) en NestJS, Kafka y Redis.
+        {/* The Horizon Glow Curve & Quick Facts */}
+        <div className="horizon-container">
+          <div aria-hidden="true" className="horizon-glow-layer">
+            <div className="hero-horizon">
+              <div className="horizon-ambient-top"></div>
+              <div className="horizon-ambient-bottom"></div>
+              <div className="horizon-arc-line"></div>
+            </div>
           </div>
 
-          <div className="terminal-line" style={{ marginTop: '4px' }}>
-            <span className="terminal-prompt">$</span>
-            <span className="terminal-cmd">lucas.getCoreStack()</span>
-          </div>
-          <div className="terminal-output" style={{ color: 'var(--accent-cyan-light)' }}>
-            ["Node.js", "NestJS", "TypeScript", "Python", "Apache Kafka", "Redis", "Oracle DB", "OpenShift", "Docker"]
-            <span className="terminal-cursor"></span>
-          </div>
+          {/* 3 Quick Facts */}
+          <dl className="quick-facts-grid">
+            <div className="fact-item">
+              <dt className="fact-label">{quickFacts.now.label}</dt>
+              <dd className="fact-val">{quickFacts.now.value}</dd>
+            </div>
+            <div className="fact-item">
+              <dt className="fact-label">{quickFacts.stack.label}</dt>
+              <dd className="fact-val">{quickFacts.stack.value}</dd>
+            </div>
+            <div className="fact-item">
+              <dt className="fact-label">{quickFacts.base.label}</dt>
+              <dd className="fact-val">{quickFacts.base.value}</dd>
+            </div>
+          </dl>
         </div>
+
+        {/* Scroll Indicator */}
+        <a href="#experiencia" aria-label="Ver experiencia" className="hero-scroll-btn">
+          <span>Scroll</span>
+          <ChevronDown size={14} className="bounce-arrow" />
+        </a>
       </div>
     </section>
   );

@@ -1,117 +1,124 @@
 import React, { useState } from 'react';
-import { Layers, ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Check } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
-import ProjectModal from './ProjectModal';
 
 export default function Projects() {
-  const [filter, setFilter] = useState('all');
-  const [activeProject, setActiveProject] = useState(null);
-
-  const filteredProjects = portfolioData.projects.filter(p => {
-    if (filter === 'all') return true;
-    return p.category === filter;
-  });
+  const [activeIdx, setActiveIdx] = useState(0);
+  const currentProject = portfolioData.projects[activeIdx];
 
   return (
-    <section id="proyectos" className="section-wrapper">
-      <div className="section-header">
-        <div className="section-tag">
-          <Layers size={14} />
-          <span>Ingeniería & Proyectos</span>
+    <section id="proyectos" className="section">
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-idx-header">
+          <div className="section-idx-line">
+            <span className="idx-number">02</span>
+            <span className="idx-rule"></span>
+          </div>
+          <h2 className="section-main-title">Proyectos</h2>
         </div>
-        <h2 className="section-title">Sistemas Diseñados para la Escala</h2>
-        <p className="section-desc">
-          Casos prácticos de arquitecturas backend de misión crítica, motores transaccionales financieros y orquestadores con agentes de Inteligencia Artificial.
-        </p>
-      </div>
 
-      {/* Filter Tabs */}
-      <div className="project-filters">
-        <button 
-          onClick={() => setFilter('all')} 
-          className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-        >
-          Todos ({portfolioData.projects.length})
-        </button>
-        <button 
-          onClick={() => setFilter('ai')} 
-          className={`filter-btn ${filter === 'ai' ? 'active' : ''}`}
-        >
-          Agentes de IA
-        </button>
-        <button 
-          onClick={() => setFilter('fintech')} 
-          className={`filter-btn ${filter === 'fintech' ? 'active' : ''}`}
-        >
-          FinTech & Core Bancario
-        </button>
-        <button 
-          onClick={() => setFilter('cloud')} 
-          className={`filter-btn ${filter === 'cloud' ? 'active' : ''}`}
-        >
-          Cloud & Gateways
-        </button>
-      </div>
+        {/* Split Layout: Left Tabs + Right Showcase */}
+        <div className="projects-split-layout">
+          {/* Left: Vertical Projects Tab List */}
+          <div className="projects-tablist" role="tablist" aria-label="Proyectos">
+            {portfolioData.projects.map((proj, idx) => {
+              const isActive = activeIdx === idx;
+              return (
+                <button
+                  key={proj.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveIdx(idx)}
+                  className={`project-tab-btn ${isActive ? 'active' : ''}`}
+                >
+                  <span className="tab-marker-dot"></span>
 
-      {/* Projects Grid */}
-      <div className="projects-grid">
-        {filteredProjects.map((project) => (
-          <div 
-            key={project.id} 
-            className="project-card"
-            onClick={() => setActiveProject(project)}
-          >
-            <div className="project-image-wrap">
+                  <div className="tab-header-row">
+                    <span className="tab-project-name">{proj.title}</span>
+                    <span className="tab-status-pill">
+                      <span 
+                        className="status-dot-mini" 
+                        style={{ backgroundColor: proj.statusColor }}
+                      ></span>
+                      {proj.status}
+                    </span>
+                  </div>
+
+                  <span className="tab-project-sub">{proj.subtitle}</span>
+
+                  <div className="tab-thumb-wrapper">
+                    <img 
+                      src={proj.image} 
+                      alt={proj.title} 
+                      className="tab-thumb-img" 
+                      loading="eager"
+                    />
+                    {isActive && <div className="tab-progress-bar"></div>}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right: Selected Project Showcase */}
+          <div className="showcase-panel">
+            <div className="showcase-preview-wrap">
               <img 
-                src={project.image} 
-                alt={project.title} 
-                className="project-image"
-                loading="eager" 
+                src={currentProject.image} 
+                alt={currentProject.title} 
+                className="showcase-img"
               />
-              <span className="project-category-badge">
-                {project.category.toUpperCase()}
-              </span>
+              <div className="showcase-img-overlay"></div>
             </div>
 
-            <div className="project-content">
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
-                <h3 className="project-title">{project.title}</h3>
-                <ArrowUpRight size={18} style={{ color: 'var(--text-muted)' }} />
-              </div>
-              <p className="project-subtitle">{project.subtitle}</p>
-              <p className="project-desc">{project.description}</p>
+            <div className="showcase-content">
+              <h3 className="showcase-title">{currentProject.title}</h3>
+              <p className="showcase-subtitle">{currentProject.subtitle}</p>
 
-              {/* Metrics Row */}
-              <div className="project-metrics-row">
-                {project.metrics.map((m, idx) => (
-                  <div key={idx} className="metric-pill">
-                    <span className="metric-pill-val">{m.value}</span>
-                    <span className="metric-pill-lbl">{m.label}</span>
+              <p className="showcase-desc">{currentProject.description}</p>
+
+              {/* Metrics */}
+              <div className="showcase-metrics">
+                {currentProject.metrics.map((m, mIdx) => (
+                  <div key={mIdx} className="metric-item">
+                    <span className="metric-val">{m.value}</span>
+                    <span className="metric-lbl">{m.label}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Tags */}
-              <div className="project-tags">
-                {project.tags.slice(0, 4).map((tag, idx) => (
-                  <span key={idx} className="tech-tag">{tag}</span>
+              {/* Highlights */}
+              <ul className="showcase-highlights">
+                {currentProject.highlights.map((h, hIdx) => (
+                  <li key={hIdx} className="highlight-row">
+                    <Check size={15} style={{ color: 'var(--brand-light)', flexShrink: 0, marginTop: '2px' }} />
+                    <span>{h}</span>
+                  </li>
                 ))}
-                {project.tags.length > 4 && (
-                  <span className="tech-tag">+{project.tags.length - 4}</span>
-                )}
+              </ul>
+
+              {/* Tech Tags */}
+              <div className="tags-row" style={{ marginTop: 'auto', marginBottom: '20px' }}>
+                {currentProject.tags.map((tag, tIdx) => (
+                  <span key={tIdx} className="tag-badge">{tag}</span>
+                ))}
               </div>
+
+              <a 
+                href={`mailto:${portfolioData.personal.contact.email}?subject=Consulta%20sobre%20${encodeURIComponent(currentProject.title)}`}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-outline"
+                style={{ justifyContent: 'center' }}
+              >
+                <span>Consultar sobre este proyecto</span>
+                <ArrowUpRight size={15} />
+              </a>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-
-      {/* Modal Popup for Selected Project */}
-      {activeProject && (
-        <ProjectModal 
-          project={activeProject} 
-          onClose={() => setActiveProject(null)} 
-        />
-      )}
     </section>
   );
 }

@@ -1,32 +1,18 @@
 import React from 'react';
-import { ArrowUp, Terminal, Shield } from 'lucide-react';
+import { portfolioData } from '../data/portfolioData';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="footer">
-      <div className="footer-inner">
+      <div className="container footer-inner">
         <div>
-          <span>© {new Date().getFullYear()} Lucas Güimil.</span>
-          <span style={{ margin: '0 8px', color: 'var(--border-medium)' }}>•</span>
-          <span>Backend & AI Systems Engineer</span>
+          <span>© {new Date().getFullYear()} {portfolioData.personal.fullName}.</span>
+          <span style={{ margin: '0 8px', color: 'var(--border-medium)' }}>·</span>
+          <span>{portfolioData.personal.role}</span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            React + Vite + Modern Vanilla CSS
-          </span>
-          <button 
-            onClick={scrollToTop} 
-            className="footer-back-to-top"
-            title="Volver arriba"
-          >
-            <span>Top</span>
-            <ArrowUp size={14} />
-          </button>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-subtle)' }}>
+          React · Vite · Cyber-Emerald Design
         </div>
       </div>
     </footer>

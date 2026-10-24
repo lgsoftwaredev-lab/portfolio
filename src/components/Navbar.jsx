@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['inicio', 'experiencia', 'proyectos', 'simulador', 'skills', 'contacto'];
-      const scrollPos = window.scrollY + 200;
+      const sections = ['inicio', 'experiencia', 'proyectos', 'habilidades', 'contacto'];
+      const scrollPos = window.scrollY + 180;
 
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -33,18 +33,19 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-inner">
-        <a href="#inicio" className="logo-badge" onClick={() => setMobileMenuOpen(false)}>
-          <span className="logo-icon-dot"></span>
-          <span>lucas.güimil()</span>
+      <div className="container navbar-inner">
+        {/* Brand: [lg] /lucas */}
+        <a href="#top" className="nav-brand" onClick={() => setMobileOpen(false)}>
+          <span className="brand-badge">{portfolioData.personal.badgeHandle}</span>
+          <span className="brand-slug">{portfolioData.personal.badgeSlug}</span>
         </a>
 
-        {/* Desktop Nav Links */}
-        <ul className="nav-links">
+        {/* Center Nav Links */}
+        <ul className="nav-menu">
           <li>
             <a 
               href="#experiencia" 
-              className={`nav-link ${activeSection === 'experiencia' ? 'active' : ''}`}
+              className={`nav-item-link ${activeSection === 'experiencia' ? 'active' : ''}`}
             >
               Experiencia
             </a>
@@ -52,94 +53,65 @@ export default function Navbar() {
           <li>
             <a 
               href="#proyectos" 
-              className={`nav-link ${activeSection === 'proyectos' ? 'active' : ''}`}
+              className={`nav-item-link ${activeSection === 'proyectos' ? 'active' : ''}`}
             >
               Proyectos
             </a>
           </li>
           <li>
             <a 
-              href="#simulador" 
-              className={`nav-link ${activeSection === 'simulador' ? 'active' : ''}`}
+              href="#habilidades" 
+              className={`nav-item-link ${activeSection === 'habilidades' ? 'active' : ''}`}
             >
-              Live Demo
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#skills" 
-              className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}
-            >
-              Skills
+              Habilidades
             </a>
           </li>
           <li>
             <a 
               href="#contacto" 
-              className={`nav-link ${activeSection === 'contacto' ? 'active' : ''}`}
+              className={`nav-item-link ${activeSection === 'contacto' ? 'active' : ''}`}
             >
               Contacto
             </a>
           </li>
         </ul>
 
-        {/* Action Buttons */}
-        <div className="nav-actions">
+        {/* Right CTA: LinkedIn */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <a 
+            href={portfolioData.personal.contact.linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="nav-action-btn"
+          >
+            <span>LinkedIn</span>
+            <ArrowUpRight size={14} />
+          </a>
+
           <button 
-            className="mobile-menu-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-toggle"
+            onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Abrir menú"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
+      {mobileOpen && (
         <div style={{
-          background: 'rgba(14, 14, 18, 0.98)',
+          background: 'rgba(9, 9, 11, 0.96)',
           borderBottom: '1px solid var(--border-medium)',
-          padding: '20px 24px',
+          padding: '16px 24px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px',
+          gap: '12px'
         }}>
-          <a 
-            href="#experiencia" 
-            className="nav-link" 
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Experiencia
-          </a>
-          <a 
-            href="#proyectos" 
-            className="nav-link" 
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Proyectos
-          </a>
-          <a 
-            href="#simulador" 
-            className="nav-link" 
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Live Demo (Simulador IA)
-          </a>
-          <a 
-            href="#skills" 
-            className="nav-link" 
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Skills
-          </a>
-          <a 
-            href="#contacto" 
-            className="nav-link" 
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contacto
-          </a>
+          <a href="#experiencia" className="nav-item-link" onClick={() => setMobileOpen(false)}>Experiencia</a>
+          <a href="#proyectos" className="nav-item-link" onClick={() => setMobileOpen(false)}>Proyectos</a>
+          <a href="#habilidades" className="nav-item-link" onClick={() => setMobileOpen(false)}>Habilidades</a>
+          <a href="#contacto" className="nav-item-link" onClick={() => setMobileOpen(false)}>Contacto</a>
         </div>
       )}
     </header>
