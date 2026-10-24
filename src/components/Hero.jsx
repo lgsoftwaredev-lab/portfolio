@@ -7,11 +7,6 @@ export default function Hero({ onCopyEmail, copied }) {
 
   return (
     <section id="inicio" className="hero-section">
-      {/* Availability Status Pill */}
-      <div className="hero-status-pill">
-        <span className="status-dot"></span>
-        <span>{portfolioData.personal.status.text}</span>
-      </div>
 
       {/* Main Headline */}
       <h1 className="hero-title">
