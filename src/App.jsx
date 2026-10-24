@@ -52,11 +52,11 @@ export default function App() {
       </div>
 
       {/* Navigation Bar */}
-      <Navbar onCopyEmail={handleCopyEmail} copied={copied} />
+      <Navbar />
 
       {/* Main Content Area */}
       <main className="main-content">
-        <Hero onCopyEmail={handleCopyEmail} copied={copied} />
+        <Hero />
         <Stats />
         <Experience />
         <Projects />

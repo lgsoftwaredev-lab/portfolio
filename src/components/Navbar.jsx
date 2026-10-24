@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Check, ExternalLink, Menu, X, Terminal } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-export default function Navbar({ onCopyEmail, copied }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
@@ -85,17 +85,6 @@ export default function Navbar({ onCopyEmail, copied }) {
 
         {/* Action Buttons */}
         <div className="nav-actions">
-          <a 
-            href={portfolioData.personal.contact.linkedin}
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="nav-cta-btn"
-            title="Ver perfil de LinkedIn"
-          >
-            <span>LinkedIn</span>
-            <ExternalLink size={12} />
-          </a>
-
           <button 
             className="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
