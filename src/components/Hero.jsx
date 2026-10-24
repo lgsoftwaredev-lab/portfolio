@@ -57,15 +57,11 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* 3 Quick Facts */}
+          {/* 2 Quick Facts */}
           <dl className="quick-facts-grid">
             <div className="fact-item">
               <dt className="fact-label">{quickFacts.now.label}</dt>
               <dd className="fact-val">{quickFacts.now.value}</dd>
-            </div>
-            <div className="fact-item">
-              <dt className="fact-label">{quickFacts.stack.label}</dt>
-              <dd className="fact-val">{quickFacts.stack.value}</dd>
             </div>
             <div className="fact-item">
               <dt className="fact-label">{quickFacts.base.label}</dt>

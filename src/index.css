@@ -388,11 +388,13 @@ body {
     0 -1px 8px 0 rgba(6, 182, 212, 0.4);
 }
 
-/* 3 Quick Facts below the Horizon */
+/* 2 Quick Facts below the Horizon */
 .quick-facts-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 24px;
   text-align: center;
   position: relative;
   z-index: 2;
