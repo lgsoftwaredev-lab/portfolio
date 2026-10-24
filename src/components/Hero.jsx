@@ -14,7 +14,7 @@ export default function Hero({ onCopyEmail, copied }) {
       </h1>
 
       <p className="hero-tagline">
-        Software Developer especializado en <span className="highlight-accent">Backend</span>, <span className="highlight-accent">Sistemas Críticos</span> y <span className="highlight-accent">Agentes de IA</span>.
+        Software Developer
       </p>
 
       <p className="hero-description">

@@ -1,7 +1,7 @@
 export const portfolioData = {
   personal: {
     name: "Lucas Güimil",
-    tagline: "Software Developer especializado en Backend & Sistemas Críticos",
+    tagline: "Software Developer",
     subtagline: "Arquitecturas de microservicios resilientes, ecosistemas bancarios transaccionales y productos impulsados por agentes de Inteligencia Artificial autónomos.",
     status: {
       available: true,
