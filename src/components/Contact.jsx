@@ -3,7 +3,7 @@ import { ArrowUpRight, Briefcase, Building2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Contact() {
-  const { emailFreelance, emailLaboral, email, linkedin } = portfolioData.personal.contact;
+  const { emailFreelance, emailLaboral, email } = portfolioData.personal.contact;
   const freelanceEmail = emailFreelance || "lgsoftwaredev@gmail.com";
   const laboralEmail = emailLaboral || email || "lucasfguimil00@gmail.com";
 
@@ -69,22 +69,6 @@ export default function Contact() {
                 <ArrowUpRight size={16} />
               </a>
             </div>
-          </div>
-
-          <div className="contact-social-row">
-            <a 
-              href={linkedin} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-link"
-            >
-              <span>LinkedIn</span>
-              <ArrowUpRight size={13} />
-            </a>
-            <span style={{ color: 'var(--border-strong)' }}>·</span>
-            <span style={{ color: 'var(--fg-subtle)', fontSize: '0.85rem' }}>
-              {portfolioData.personal.quickFacts.base.value}
-            </span>
           </div>
         </div>
       </div>
