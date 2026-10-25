@@ -170,7 +170,9 @@ export const portfolioData = {
       category: "Testing",
       skills: [
         { name: "Jest", icons: ["/skills/jest.svg"] },
-        { name: "Vitest", icons: ["/skills/vitest.svg"] }
+        { name: "Vitest", icons: ["/skills/vitest.svg"] },
+        { name: "JUnit", icons: ["/skills/junit.svg"] },
+        { name: "Mockito", icons: ["/skills/mockito.svg"] }
       ]
     },
     {

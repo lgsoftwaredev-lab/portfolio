@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Straws -->
+  <line x1="30" y1="46" x2="50" y2="4" stroke="#18181b" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="36" y1="46" x2="57" y2="9" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Glass Tumbler -->
+  <path d="M16 18 C16 18 19 52 20 55 C21 57.5 25.5 59 32 59 C38.5 59 43 57.5 44 55 C45 52 48 18 48 18 Z" 
+        fill="rgba(110, 168, 42, 0.28)" 
+        stroke="#65a30d" 
+        stroke-width="2.5" 
+        stroke-linejoin="round"/>
+  
+  <!-- Rim ellipse -->
+  <ellipse cx="32" cy="18" rx="16" ry="3" stroke="#65a30d" stroke-width="2" fill="none"/>
+  
+  <!-- Lime slices & Ice inside -->
+  <circle cx="27" cy="33" r="5.5" fill="#84cc16" opacity="0.85"/>
+  <circle cx="36" cy="43" r="5" fill="#a3e635" opacity="0.75"/>
+  <circle cx="27" cy="47" r="4" fill="#65a30d" opacity="0.75"/>
+
+  <!-- Mint Leaves at top rim -->
+  <path d="M16 18 C12 11 18 5 23 7 C25 11 22 17 16 18 Z" fill="#3f6212"/>
+  <path d="M13 14 C7 11 9 4 15 5 C17 9 16 13 13 14 Z" fill="#65a30d"/>
+</svg>
