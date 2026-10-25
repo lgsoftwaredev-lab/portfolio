@@ -21,7 +21,7 @@ export default function Hero() {
 
         {/* Value Proposition */}
         <p className="hero-headline">
-          Desarrollo sistemas backend <strong>de alta criticidad</strong> y productos con <strong>agentes de Inteligencia Artificial</strong> — desde la arquitectura distribuida hasta la ejecución en producción.
+          Desarrollo sistemas backend <strong>de alta criticidad</strong> y productos <strong>integrados con agentes de Inteligencia Artificial</strong> — desde la arquitectura distribuida hasta la ejecución en producción.
         </p>
 
         {/* Action Buttons */}

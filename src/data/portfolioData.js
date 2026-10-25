@@ -6,7 +6,7 @@ export const portfolioData = {
     badgeHandle: "lg",
     badgeSlug: "/lucas",
     role: "SOFTWARE DEVELOPER",
-    headline: "Desarrollo sistemas backend de alta criticidad y productos con agentes de Inteligencia Artificial — desde la arquitectura distribuida hasta la ejecución en producción.",
+    headline: "Desarrollo sistemas backend de alta criticidad y productos integrados con agentes de Inteligencia Artificial — desde la arquitectura distribuida hasta la ejecución en producción.",
     quickFacts: {
       now: { label: "AHORA", value: "Consultoría Global · Full Stack Developer" },
       base: { label: "BASE", value: "Buenos Aires · Remoto o híbrido" }
