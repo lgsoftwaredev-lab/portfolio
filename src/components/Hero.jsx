@@ -1,23 +1,23 @@
 import React from 'react';
-import { ArrowUpRight, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Briefcase, Cpu, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Hero() {
-  const { name, lastName, role, headline, quickFacts, contact } = portfolioData.personal;
+  const { fullName, role, contact } = portfolioData.personal;
 
   return (
     <section id="top" className="hero-section">
-      <div className="container hero-main">
-        {/* Giant Centered Title */}
-        <h1 className="hero-title">
-          {name}<br />
-          {lastName}
-        </h1>
+      <div className="container hero-content">
+        {/* Role Pill Badge */}
+        <div className="hero-role-pill">
+          <span className="status-dot"></span>
+          <span>{role}</span>
+        </div>
 
-        {/* Subtitle */}
-        <span className="hero-subtitle">
-          {role}
-        </span>
+        {/* Main Name (Single Line, Modern & Crisp) */}
+        <h1 className="hero-name">
+          {fullName}
+        </h1>
 
         {/* Value Proposition */}
         <p className="hero-headline">
@@ -47,32 +47,43 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* The Horizon Glow Curve & Quick Facts */}
-        <div className="horizon-container">
-          <div aria-hidden="true" className="horizon-glow-layer">
-            <div className="hero-horizon">
-              <div className="horizon-ambient-top"></div>
-              <div className="horizon-ambient-bottom"></div>
-              <div className="horizon-arc-line"></div>
+        {/* Bento Quick Highlights Card (Replaces the horizon arc) */}
+        <div className="hero-bento-card">
+          <div className="bento-fact-col">
+            <div className="bento-label-row">
+              <Briefcase size={13} className="text-emerald" />
+              <span className="bento-label">AHORA</span>
             </div>
+            <div className="bento-value">Consultoría Global</div>
+            <div className="bento-sub">Full Stack Developer</div>
           </div>
 
-          {/* 2 Quick Facts */}
-          <dl className="quick-facts-grid">
-            <div className="fact-item">
-              <dt className="fact-label">{quickFacts.now.label}</dt>
-              <dd className="fact-val">{quickFacts.now.value}</dd>
+          <div className="bento-divider"></div>
+
+          <div className="bento-fact-col">
+            <div className="bento-label-row">
+              <Cpu size={13} className="text-emerald" />
+              <span className="bento-label">ENFOQUE</span>
             </div>
-            <div className="fact-item">
-              <dt className="fact-label">{quickFacts.base.label}</dt>
-              <dd className="fact-val">{quickFacts.base.value}</dd>
+            <div className="bento-value">Sistemas Críticos & IA</div>
+            <div className="bento-sub">Microservicios y Agentes</div>
+          </div>
+
+          <div className="bento-divider"></div>
+
+          <div className="bento-fact-col">
+            <div className="bento-label-row">
+              <MapPin size={13} className="text-emerald" />
+              <span className="bento-label">UBICACIÓN</span>
             </div>
-          </dl>
+            <div className="bento-value">Buenos Aires</div>
+            <div className="bento-sub">Remoto o híbrido</div>
+          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <a href="#experiencia" aria-label="Ver experiencia" className="hero-scroll-btn">
-          <span>Scroll</span>
+        {/* Subtle Scroll Indicator */}
+        <a href="#experiencia" aria-label="Ver experiencia" className="hero-scroll-link">
+          <span>EXPLORAR EXPERIENCIA</span>
           <ChevronDown size={14} className="bounce-arrow" />
         </a>
       </div>

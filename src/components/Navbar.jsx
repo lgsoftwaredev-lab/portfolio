@@ -34,10 +34,10 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-inner">
-        {/* Brand: [lg] /lucas */}
+        {/* Brand: lucas.güimil() */}
         <a href="#top" className="nav-brand" onClick={() => setMobileOpen(false)}>
-          <span className="brand-badge">{portfolioData.personal.badgeHandle}</span>
-          <span className="brand-slug">{portfolioData.personal.badgeSlug}</span>
+          <span className="brand-dot"></span>
+          <span className="brand-text">lucas.güimil()</span>
         </a>
 
         {/* Center Nav Links */}

@@ -126,36 +126,27 @@ body {
   gap: 8px;
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.88rem;
-  transition: opacity 0.2s;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.2s ease;
 }
 
-.brand-badge {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--brand-light);
-  font-weight: 700;
-  font-size: 0.78rem;
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  transition: all 0.2s;
+.brand-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 10px var(--brand);
 }
 
-.nav-brand:hover .brand-badge {
-  background: rgba(16, 185, 129, 0.25);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
-}
-
-.brand-slug {
-  color: var(--fg-muted);
+.brand-text {
+  color: #ffffff;
   transition: color 0.2s;
 }
 
-.nav-brand:hover .brand-slug {
-  color: #fff;
+.nav-brand:hover .brand-text {
+  color: var(--brand-light);
 }
 
 .nav-menu {
@@ -224,52 +215,63 @@ body {
    ========================================================= */
 .hero-section {
   position: relative;
-  min-height: 96vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 40px;
-  overflow: hidden;
+  padding-top: 115px;
+  padding-bottom: 50px;
 }
 
-.hero-main {
+.hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  max-width: 820px;
+  max-width: 800px;
   z-index: 2;
 }
 
-.hero-title {
-  font-size: clamp(3.4rem, 10vw, 7.5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.92;
-  color: #ffffff;
-}
-
-.hero-title-dot {
-  color: var(--brand-light);
-}
-
-.hero-subtitle {
+.hero-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.24);
   font-family: var(--font-mono);
-  font-size: clamp(0.85rem, 2vw, 1.05rem);
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--fg-muted);
-  font-weight: 500;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--brand-light);
+  margin-bottom: 20px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 8px var(--brand);
+}
+
+.hero-name {
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
 
 .hero-headline {
   max-width: 640px;
-  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+  font-size: clamp(0.96rem, 1.8vw, 1.12rem);
   line-height: 1.65;
   color: var(--fg-muted);
+  margin-bottom: 28px;
 }
 
 .hero-headline strong {
@@ -281,7 +283,6 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 10px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -332,110 +333,78 @@ body {
 }
 
 /* =========================================================
-   The Horizon Glow Arc (Astronomical Curve)
+   Bento Quick Highlights Card (Replaces the horizon arc)
    ========================================================= */
-.horizon-container {
-  position: relative;
+.hero-bento-card {
+  margin-top: 52px;
   width: 100%;
-  max-width: 820px;
-  margin-top: 48px;
-  padding-top: 40px;
-}
-
-.horizon-glow-layer {
-  pointer-events: none;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: max(220vw, 2400px);
-  transform: translateX(-50%);
-  margin-top: -180px;
-  z-index: -1;
-}
-
-.hero-horizon {
-  position: relative;
-  height: 540px;
-  mask-image: linear-gradient(to right, transparent 8%, black 36%, black 64%, transparent 92%);
-  -webkit-mask-image: linear-gradient(to right, transparent 8%, black 36%, black 64%, transparent 92%);
-}
-
-.horizon-ambient-top {
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: 180px;
-  background: radial-gradient(28% 100% at 50% 100%, rgba(16, 185, 129, 0.2), transparent 75%);
-}
-
-.horizon-ambient-bottom {
-  position: absolute;
-  inset-inline: 0;
-  top: 180px;
-  height: 180px;
-  background: radial-gradient(22% 100% at 50% 0%, rgba(6, 182, 212, 0.12), transparent 80%);
-}
-
-.horizon-arc-line {
-  position: absolute;
-  inset-inline: 0;
-  top: 180px;
-  aspect-ratio: 4 / 1;
-  border-radius: 50%;
-  box-shadow: 
-    inset 0 1px 0 0 rgba(110, 231, 183, 0.7),
-    0 -3px 30px -4px rgba(16, 185, 129, 0.5),
-    0 -1px 8px 0 rgba(6, 182, 212, 0.4);
-}
-
-/* 2 Quick Facts below the Horizon */
-.quick-facts-grid {
+  max-width: 760px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 600px;
-  margin: 0 auto;
-  gap: 24px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  background: rgba(17, 17, 22, 0.7);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  padding: 20px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.fact-item {
+.bento-fact-col {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
 }
 
-.fact-label {
+.bento-label-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
   color: var(--fg-subtle);
 }
 
-.fact-val {
-  font-size: 0.88rem;
-  color: var(--fg-secondary);
-  font-weight: 500;
+.bento-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.hero-scroll-btn {
+.bento-sub {
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+}
+
+.bento-divider {
+  width: 1px;
+  height: 38px;
+  background: var(--border-subtle);
+}
+
+.text-emerald {
+  color: var(--brand-light);
+}
+
+.hero-scroll-link {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin-top: 36px;
+  margin-top: 40px;
   color: var(--fg-subtle);
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   transition: color 0.2s;
 }
 
-.hero-scroll-btn:hover {
+.hero-scroll-link:hover {
   color: #fff;
 }
 
@@ -1002,9 +971,14 @@ body {
   .skills-modern-grid {
     grid-template-columns: 1fr;
   }
-  .quick-facts-grid {
+  .hero-bento-card {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+  .bento-divider {
+    width: 100%;
+    height: 1px;
   }
   .nav-menu {
     display: none;
