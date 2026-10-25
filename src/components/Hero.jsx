@@ -83,7 +83,7 @@ export default function Hero() {
 
         {/* Subtle Scroll Indicator */}
         <a href="#experiencia" aria-label="Ver experiencia" className="hero-scroll-link">
-          <span>EXPLORAR EXPERIENCIA</span>
+          <span>Scroll</span>
           <ChevronDown size={14} className="bounce-arrow" />
         </a>
       </div>

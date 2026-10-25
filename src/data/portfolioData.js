@@ -41,7 +41,7 @@ export const portfolioData = {
       period: "2023 — Ago 2026",
       isCurrent: false,
       company: "Consultoría Global S.A.",
-      client: "Sector: Banca & FinTech",
+      client: "Santander Tecnología",
       role: "Desarrollador Full Stack / Backend",
       description: "Participación activa en células ágiles de ingeniería bancaria (Cross-Product y Fondos Comunes de Inversión - FCI), desarrollando microservicios backend críticos tolerantes a fallos y con estrictos estándares de seguridad financiera.",
       achievements: [
