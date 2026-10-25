@@ -14,27 +14,33 @@ export default function Skills() {
           <h2 className="section-main-title">Habilidades</h2>
         </div>
 
-        {/* 2x2 Clean Categorized Grid */}
-        <div className="skills-modern-grid">
-          {portfolioData.skillCategories.map((cat, idx) => (
-            <div key={idx} className="skill-box">
-              <h3 className="skill-box-title">
-                <span>{cat.title}</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-subtle)' }}>
-                  0{idx + 1}
-                </span>
-              </h3>
-
-              <div className="skill-pill-list">
-                {cat.skills.map((skill, sIdx) => (
-                  <span key={sIdx} className="skill-pill">
-                    {skill}
-                  </span>
+        {/* Categorized List with Tech Logos */}
+        <ul className="skills-category-list">
+          {portfolioData.skillCategories.map((group, idx) => (
+            <li key={idx} className="skills-row">
+              <span className="skills-category-name">{group.category}</span>
+              <ul className="skills-pill-group">
+                {group.skills.map((skill, sIdx) => (
+                  <li key={sIdx} className="skill-tech-badge">
+                    <span className="skill-icons-wrapper">
+                      {skill.icons.map((iconPath, iIdx) => (
+                        <img 
+                          key={iIdx} 
+                          src={iconPath} 
+                          alt="" 
+                          aria-hidden="true" 
+                          className="skill-tech-icon"
+                          loading="lazy"
+                        />
+                      ))}
+                    </span>
+                    <span className="skill-tech-name">{skill.name}</span>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

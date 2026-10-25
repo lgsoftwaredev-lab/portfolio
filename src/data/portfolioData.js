@@ -123,20 +123,64 @@ export const portfolioData = {
 
   skillCategories: [
     {
-      title: "Backend Core & Arquitectura",
-      skills: ["Node.js", "NestJS", "TypeScript", "Java (Spring Boot)", "Python", "Microservicios", "REST", "SOAP", "Clean Architecture", "Event-Driven"]
+      category: "Frontend",
+      skills: [
+        { name: "React", icons: ["/skills/react.svg"] },
+        { name: "React Native", icons: ["/skills/reactnative.svg"] },
+        { name: "Next.js", icons: ["/skills/nextjs.svg"] },
+        { name: "TypeScript", icons: ["/skills/typescript.svg"] },
+        { name: "JavaScript", icons: ["/skills/javascript.svg"] },
+        { name: "HTML & CSS", icons: ["/skills/html5.svg", "/skills/css.svg"] },
+        { name: "Tailwind", icons: ["/skills/tailwindcss.svg"] }
+      ]
     },
     {
-      title: "Inteligencia Artificial & Agentes",
-      skills: ["Autonomous Agents", "Tool Calling", "LangChain", "Vector Databases", "Prompt Engineering", "Guardrails", "LLM APIs"]
+      category: "Backend",
+      skills: [
+        { name: "Node.js", icons: ["/skills/nodejs.svg"] },
+        { name: "Nest.js", icons: ["/skills/nestjs.svg"] },
+        { name: "Express", icons: ["/skills/expressjs.svg"] },
+        { name: "Microservicios", icons: ["/skills/microservices.svg"] },
+        { name: "Python", icons: ["/skills/python.svg"] },
+        { name: "FastAPI", icons: ["/skills/fastapi.svg"] }
+      ]
     },
     {
-      title: "Streaming, Cloud & DevOps",
-      skills: ["Apache Kafka", "Redis", "Red Hat OpenShift", "Google Cloud (GCP)", "Docker", "CI/CD Pipelines", "OpenTelemetry"]
+      category: "IA & Agentes",
+      skills: [
+        { name: "LangChain", icons: ["/skills/langchain.svg"] },
+        { name: "OpenAI / LLMs", icons: ["/skills/openai.svg"] },
+        { name: "Claude Code", icons: ["/skills/claude.svg"] }
+      ]
     },
     {
-      title: "Bases de Datos & Almacenamiento",
-      skills: ["PostgreSQL", "Oracle DB", "MongoDB", "TypeORM", "Prisma", "Redis Cache", "SQL Optimization"]
+      category: "Database",
+      skills: [
+        { name: "PostgreSQL", icons: ["/skills/postgresql.svg"] },
+        { name: "Oracle", icons: ["/skills/oracle.svg"] },
+        { name: "MongoDB", icons: ["/skills/mongodb.svg"] },
+        { name: "Redis", icons: ["/skills/redis.svg"] },
+        { name: "MySQL", icons: ["/skills/mysql.svg"] },
+        { name: "Prisma", icons: ["/skills/prisma.svg"] }
+      ]
+    },
+    {
+      category: "Testing",
+      skills: [
+        { name: "Jest", icons: ["/skills/jest.svg"] },
+        { name: "Vitest", icons: ["/skills/vitest.svg"] }
+      ]
+    },
+    {
+      category: "Tooling",
+      skills: [
+        { name: "Git", icons: ["/skills/git.svg"] },
+        { name: "Docker", icons: ["/skills/docker.svg"] },
+        { name: "Apache Kafka", icons: ["/skills/apachekafka.svg"] },
+        { name: "CI/CD", icons: ["/skills/cicd.svg"] },
+        { name: "Google Cloud", icons: ["/skills/googlecloud.svg"] },
+        { name: "OpenShift", icons: ["/skills/redhat.svg"] }
+      ]
     }
   ]
 };
