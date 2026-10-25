@@ -45,7 +45,7 @@ export const portfolioData = {
       role: "Desarrollador Full Stack / Backend",
       description: "Participación activa en células ágiles de ingeniería bancaria para Santander Tecnología (Cross-Product y Fondos Comunes de Inversión - FCI), desarrollando microservicios backend críticos tolerantes a fallos y con estrictos estándares de seguridad financiera.",
       achievements: [
-        "Desarrollo de microservicios backend en NestJS y TypeScript aplicando reglas de negocio complejas y validaciones financieras",
+        "Desarrollo de microservicios backend aplicando reglas de negocio complejas y validaciones financieras",
         "Procesamiento asíncrono de eventos transaccionales de alto volumen utilizando Apache Kafka y Redis",
         "Integración bidireccional con APIs core bancarias, servicios legacy SOAP y modernas interfaces RESTful",
         "Diseño e indexación de esquemas de datos relacionales en Oracle DB y PostgreSQL para auditorías financieras",

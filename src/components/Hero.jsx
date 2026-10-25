@@ -26,20 +26,20 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="hero-actions">
-          <a 
-            href={`mailto:${contact.email}`} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href={`mailto:${contact.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-brand-solid"
           >
             <span>Iniciar Contacto</span>
             <ArrowUpRight size={16} />
           </a>
 
-          <a 
-            href={contact.linkedin} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-outline"
           >
             <span>LinkedIn</span>
