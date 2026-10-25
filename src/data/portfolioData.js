@@ -12,6 +12,8 @@ export const portfolioData = {
       base: { label: "BASE", value: "Buenos Aires · Remoto o híbrido" }
     },
     contact: {
+      emailFreelance: "lgsoftwaredev@gmail.com",
+      emailLaboral: "lucasfguimil00@gmail.com",
       email: "lucasfguimil00@gmail.com",
       linkedin: "https://m.linkedin.com/in/lucas-güimil-28bb22243",
       github: "https://github.com",

@@ -1,9 +1,11 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Briefcase, Building2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Contact() {
-  const { email, linkedin, github } = portfolioData.personal.contact;
+  const { emailFreelance, emailLaboral, email, linkedin } = portfolioData.personal.contact;
+  const freelanceEmail = emailFreelance || "lgsoftwaredev@gmail.com";
+  const laboralEmail = emailLaboral || email || "lucasfguimil00@gmail.com";
 
   return (
     <section id="contacto" className="section">
@@ -19,21 +21,60 @@ export default function Contact() {
 
         <div className="contact-section-inner">
           <h3 className="contact-big-title">
-            ¿Hablamos de tu próximo desafío?
+            Desafíos y propuestas
           </h3>
           <p className="contact-text">
-            Estoy disponible para roles de ingeniería backend de alta criticidad, ecosistemas transaccionales y productos impulsados por agentes de Inteligencia Artificial.
+            Canales directos para proyectos independientes, consultoría de arquitectura o integración a equipos de ingeniería.
           </p>
 
-          <a 
-            href={`mailto:${email}`}
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="contact-direct-btn"
-          >
-            <span>{email}</span>
-            <ArrowUpRight size={17} />
-          </a>
+          {/* 2 Contact Cards */}
+          <div className="contact-cards-grid">
+            {/* Card 1: Freelance */}
+            <div className="contact-card">
+              <div className="contact-card-header">
+                <div className="contact-card-icon-wrap freelance">
+                  <Briefcase size={20} />
+                </div>
+                <span className="contact-card-tag">Freelance & Consultoría</span>
+              </div>
+              <h4 className="contact-card-title">Contacto freelance</h4>
+              <p className="contact-card-desc">
+                Desarrollo a medida, MVPs, consultoría técnica y sistemas web escalables de punta a punta.
+              </p>
+              <a 
+                href={`mailto:${freelanceEmail}`}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="contact-card-btn"
+              >
+                <span className="contact-card-email">{freelanceEmail}</span>
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
+
+            {/* Card 2: Propuestas Laborales */}
+            <div className="contact-card">
+              <div className="contact-card-header">
+                <div className="contact-card-icon-wrap laboral">
+                  <Building2 size={20} />
+                </div>
+                <span className="contact-card-tag">Full-Time & Equipos</span>
+              </div>
+              <h4 className="contact-card-title">Contacto por propuestas laborales</h4>
+              <p className="contact-card-desc">
+                Posiciones de ingeniería backend, sistemas transaccionales y productos con agentes de IA.
+              </p>
+              <a 
+                href={`mailto:${laboralEmail}`}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="contact-card-btn"
+              >
+                <span className="contact-card-email">{laboralEmail}</span>
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </div>
 
           <div className="contact-social-row">
             <a 
