@@ -141,6 +141,8 @@ export const portfolioData = {
         { name: "Nest.js", icons: ["/skills/nestjs.svg"] },
         { name: "Express", icons: ["/skills/expressjs.svg"] },
         { name: "Microservicios", icons: ["/skills/microservices.svg"] },
+        { name: "Java", icons: ["/skills/java.svg"] },
+        { name: "Spring Boot", icons: ["/skills/spring.svg"] },
         { name: "Python", icons: ["/skills/python.svg"] },
         { name: "FastAPI", icons: ["/skills/fastapi.svg"] }
       ]
