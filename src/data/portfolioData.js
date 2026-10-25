@@ -43,7 +43,7 @@ export const portfolioData = {
       company: "Consultoría Global S.A.",
       client: "Santander Tecnología",
       role: "Desarrollador Full Stack / Backend",
-      description: "Participación activa en células ágiles de ingeniería bancaria (Cross-Product y Fondos Comunes de Inversión - FCI), desarrollando microservicios backend críticos tolerantes a fallos y con estrictos estándares de seguridad financiera.",
+      description: "Participación activa en células ágiles de ingeniería bancaria para Santander Tecnología (Cross-Product y Fondos Comunes de Inversión - FCI), desarrollando microservicios backend críticos tolerantes a fallos y con estrictos estándares de seguridad financiera.",
       achievements: [
         "Desarrollo de microservicios backend en NestJS y TypeScript aplicando reglas de negocio complejas y validaciones financieras",
         "Procesamiento asíncrono de eventos transaccionales de alto volumen utilizando Apache Kafka y Redis",
