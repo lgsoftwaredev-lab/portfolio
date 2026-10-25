@@ -23,9 +23,6 @@ export default function Contact() {
           <h3 className="contact-big-title">
             Desafíos y propuestas
           </h3>
-          <p className="contact-text">
-            Canales directos para proyectos independientes, consultoría de arquitectura o integración a equipos de ingeniería.
-          </p>
 
           {/* 2 Contact Cards */}
           <div className="contact-cards-grid">
@@ -35,11 +32,10 @@ export default function Contact() {
                 <div className="contact-card-icon-wrap freelance">
                   <Briefcase size={20} />
                 </div>
-                <span className="contact-card-tag">Freelance & Consultoría</span>
               </div>
               <h4 className="contact-card-title">Contacto freelance</h4>
               <p className="contact-card-desc">
-                Desarrollo a medida, MVPs, consultoría técnica y sistemas web escalables de punta a punta.
+                Desarrollo a medida, MVPs, Consultoría Técnica.
               </p>
               <a 
                 href={`mailto:${freelanceEmail}`}
@@ -58,11 +54,10 @@ export default function Contact() {
                 <div className="contact-card-icon-wrap laboral">
                   <Building2 size={20} />
                 </div>
-                <span className="contact-card-tag">Full-Time & Equipos</span>
               </div>
               <h4 className="contact-card-title">Contacto por propuestas laborales</h4>
               <p className="contact-card-desc">
-                Posiciones de ingeniería backend, sistemas transaccionales y productos con agentes de IA.
+                Siempre abierto a conectar y evaluar nuevos desafíos profesionales.
               </p>
               <a 
                 href={`mailto:${laboralEmail}`}
