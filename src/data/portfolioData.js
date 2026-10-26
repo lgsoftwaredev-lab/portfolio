@@ -17,6 +17,7 @@ export const portfolioData = {
       email: "lucasfguimil00@gmail.com",
       linkedin: "https://m.linkedin.com/in/lucas-güimil-28bb22243",
       github: "https://github.com",
+      cv: "/CV-Lucas-Guimil.pdf",
       location: "Buenos Aires, Argentina"
     }
   },

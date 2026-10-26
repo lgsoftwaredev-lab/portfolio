@@ -76,15 +76,16 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Right CTA: LinkedIn */}
+        {/* Right CTA: CV */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <a 
-            href={portfolioData.personal.contact.linkedin} 
+            href={portfolioData.personal.contact.cv || "/CV-Lucas-Guimil.pdf"} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="nav-action-btn"
+            aria-label="Abrir CV en formato PDF"
           >
-            <span>LinkedIn</span>
+            <span>CV</span>
             <ArrowUpRight size={14} />
           </a>
 
