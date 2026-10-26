@@ -18,6 +18,7 @@ export const portfolioData = {
       linkedin: "https://m.linkedin.com/in/lucas-güimil-28bb22243",
       github: "https://github.com",
       cv: "/CV-Lucas-Guimil.pdf",
+      cvAts: "/CV-Lucas-Guimil-ATS.docx",
       location: "Buenos Aires, Argentina"
     }
   },
