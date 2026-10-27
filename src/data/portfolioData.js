@@ -62,6 +62,28 @@ export const portfolioData = {
   projects: [
     {
       id: "proj-1",
+      title: "ArmorCut PPF",
+      subtitle: "SaaS de gestión de stock, bobinas y consumibles para detailing vehicular",
+      status: "En producción",
+      statusColor: "#10b981",
+      image: "/projects/armorcut_ppf.png",
+      description: "Plataforma SaaS full-stack diseñada a medida para talleres y centros de detailing vehicular. Especializada en la administración y fraccionamiento de bobinas de PPF (Paint Protection Film) con cálculo de metros lineales y control de desperdicio, integrando además módulos de stock para consumibles (shampoo neutro, revividores, selladores cerámicos y tratamientos).",
+      highlights: [
+        "Control granular de stock de bobinas de PPF: cálculo exacto de metros disponibles, ancho, código de lote y acabado (Gloss, Satin Matte, Windshield)",
+        "Registro de cortes y salidas en tiempo real con trazabilidad operativa y cálculo automático de m² restantes",
+        "Módulo de control de inventario para insumos y químicos: revividores de interiores, shampoo neutro y selladores cerámicos",
+        "Arquitectura serverless optimizada sobre Vercel con persistencia relacional en Supabase (PostgreSQL + RLS) con $0 costo de infraestructura",
+        "Generación y exportación de auditorías a CSV con métricas de consumo y trazabilidad integral"
+      ],
+      metrics: [
+        { label: "Trazabilidad", value: "100% PPF" },
+        { label: "Arquitectura", value: "Serverless" },
+        { label: "Infraestructura", value: "$0 Supabase" }
+      ],
+      tags: ["react", "typescript", "supabase", "postgresql", "tailwind", "serverless", "vercel"]
+    },
+    {
+      id: "proj-2",
       title: "Aetherius",
       subtitle: "Motor distribuido de orquestación de agentes autónomos",
       status: "En desarrollo",
@@ -82,7 +104,7 @@ export const portfolioData = {
       tags: ["python", "typescript", "langchain", "fastapi", "redis-vector", "docker", "sse-streaming"]
     },
     {
-      id: "proj-2",
+      id: "proj-3",
       title: "Core FCI",
       subtitle: "Engine transaccional bancario de alta disponibilidad",
       status: "Publicado",
@@ -101,27 +123,6 @@ export const portfolioData = {
         { label: "Disponibilidad", value: "99.98%" }
       ],
       tags: ["nestjs", "typescript", "apache-kafka", "oracle-db", "redis", "openshift", "event-driven"]
-    },
-    {
-      id: "proj-3",
-      title: "Sentinel Gate",
-      subtitle: "Gateway perimetral mTLS y observabilidad distribuida",
-      status: "Publicado",
-      statusColor: "#06b6d4",
-      image: "/projects/banking_gateway.jpg",
-      description: "Gateway perimetral diseñado para gobernar, proteger y monitorizar la comunicación entre microservicios bancarios y clientes externos, implementando autenticación mutua TLS (Zero-Trust) y rate limiting adaptativo.",
-      highlights: [
-        "Autenticación mTLS y rotación de certificados criptográficos con auditoría en tiempo real",
-        "Rate limiting distribuido basado en Redis con algoritmos Token Bucket y Leaky Bucket",
-        "Trazabilidad distribuida de punta a punta con correlación de Request IDs e instrumentación OpenTelemetry",
-        "Defensa proactiva contra inyección de datos y ataques DoS con fallback automático a réplicas saludables"
-      ],
-      metrics: [
-        { label: "Tráfico Diario", value: "87.2M Req" },
-        { label: "Tasa de Error", value: "0.01%" },
-        { label: "Seguridad", value: "mTLS Zero-Trust" }
-      ],
-      tags: ["node.js", "typescript", "gcp", "docker", "redis-cluster", "mtls", "opentelemetry"]
     }
   ],
 

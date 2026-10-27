@@ -105,16 +105,43 @@ export default function Projects() {
                 ))}
               </div>
 
-              <a 
-                href={`mailto:${portfolioData.personal.contact.email}?subject=Consulta%20sobre%20${encodeURIComponent(currentProject.title)}`}
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-outline"
-                style={{ justifyContent: 'center' }}
-              >
-                <span>Consultar sobre este proyecto</span>
-                <ArrowUpRight size={15} />
-              </a>
+              {/* Action Buttons */}
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                {currentProject.demoUrl && (
+                  <a 
+                    href={currentProject.demoUrl}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn-primary"
+                    style={{ flex: 1, minWidth: '160px', justifyContent: 'center' }}
+                  >
+                    <span>Ver Demo en Vivo</span>
+                    <ArrowUpRight size={15} />
+                  </a>
+                )}
+                {currentProject.githubUrl && (
+                  <a 
+                    href={currentProject.githubUrl}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn-outline"
+                    style={{ flex: 1, minWidth: '140px', justifyContent: 'center' }}
+                  >
+                    <span>Ver Código</span>
+                    <ArrowUpRight size={15} />
+                  </a>
+                )}
+                <a 
+                  href={`mailto:${portfolioData.personal.contact.email}?subject=Consulta%20sobre%20${encodeURIComponent(currentProject.title)}`}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-outline"
+                  style={{ flex: currentProject.demoUrl ? '0 1 auto' : 1, justifyContent: 'center' }}
+                >
+                  <span>Consultar sobre este proyecto</span>
+                  <ArrowUpRight size={15} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
