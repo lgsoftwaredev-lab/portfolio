@@ -79,14 +79,16 @@ export default function Projects() {
               <p className="showcase-desc">{currentProject.description}</p>
 
               {/* Metrics */}
-              <div className="showcase-metrics">
-                {currentProject.metrics.map((m, mIdx) => (
-                  <div key={mIdx} className="metric-item">
-                    <span className="metric-val">{m.value}</span>
-                    <span className="metric-lbl">{m.label}</span>
-                  </div>
-                ))}
-              </div>
+              {currentProject.metrics && currentProject.metrics.length > 0 && (
+                <div className="showcase-metrics">
+                  {currentProject.metrics.map((m, mIdx) => (
+                    <div key={mIdx} className="metric-item">
+                      <span className="metric-val">{m.value}</span>
+                      <span className="metric-lbl">{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Highlights */}
               <ul className="showcase-highlights">
