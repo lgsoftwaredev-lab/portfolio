@@ -114,7 +114,7 @@ export default function Projects() {
                     href={currentProject.demoUrl}
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="btn-primary"
+                    className="btn-brand-solid"
                     style={{ flex: 1, minWidth: '160px', justifyContent: 'center' }}
                   >
                     <span>Ver Demo en Vivo</span>

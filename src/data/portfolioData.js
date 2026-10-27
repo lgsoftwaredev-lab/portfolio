@@ -75,7 +75,8 @@ export const portfolioData = {
         "Arquitectura serverless optimizada sobre Vercel con persistencia relacional en Supabase (PostgreSQL + RLS) con $0 costo de infraestructura",
         "Generación y exportación de auditorías a CSV con métricas de consumo y trazabilidad integral"
       ],
-      tags: ["react", "typescript", "supabase", "postgresql", "tailwind", "serverless", "vercel"]
+      tags: ["react", "typescript", "supabase", "postgresql", "tailwind", "serverless", "vercel"],
+      demoUrl: "https://armor-cut.vercel.app/"
     },
     {
       id: "proj-2",
