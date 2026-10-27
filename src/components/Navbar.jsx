@@ -81,7 +81,7 @@ export default function Navbar() {
           <a 
             href="/CV-Lucas-Guimil-ATS.docx" 
             download="CV - Lucas Guimil - ATS.docx"
-            className="nav-action-btn"
+            className="nav-action-btn nav-cta-desktop"
             style={{ 
               borderColor: 'rgba(16, 185, 129, 0.4)', 
               color: 'var(--brand-light)',
@@ -98,7 +98,7 @@ export default function Navbar() {
             href={portfolioData.personal.contact.cv || "/CV-Lucas-Guimil.pdf"} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="nav-action-btn"
+            className="nav-action-btn nav-cta-desktop"
             aria-label="Abrir CV en formato PDF"
             title="Ver CV en PDF"
           >

@@ -1128,15 +1128,18 @@ body {
 }
 
 /* =========================================================
-   Responsive Breakpoints
+   Responsive Breakpoints & Mobile Optimization
    ========================================================= */
+
+/* Tablet & Mobile (< 820px) */
 @media (max-width: 820px) {
-  .projects-split-layout {
-    grid-template-columns: 1fr;
+  .nav-menu {
+    display: none;
   }
-  .skills-modern-grid {
-    grid-template-columns: 1fr;
+  .mobile-toggle {
+    display: block;
   }
+
   .hero-bento-card {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1146,10 +1149,236 @@ body {
     width: 100%;
     height: 1px;
   }
-  .nav-menu {
+
+  /* Projects: Horizontal Scrollable Segmented Control */
+  .projects-split-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .projects-tablist {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-left: 0;
+    gap: 8px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projects-tablist::-webkit-scrollbar {
     display: none;
   }
-  .mobile-toggle {
-    display: block;
+
+  .project-tab-btn {
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-medium);
+    cursor: pointer;
+    min-width: unset;
+  }
+
+  .project-tab-btn.active {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.18);
+  }
+
+  .tab-marker-dot,
+  .tab-project-sub,
+  .tab-thumb-wrapper {
+    display: none;
+  }
+
+  .tab-header-row {
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .tab-project-name {
+    font-size: 0.9rem;
+  }
+
+  .showcase-preview-wrap {
+    height: 220px;
+  }
+
+  .showcase-content {
+    padding: 20px 18px;
+  }
+}
+
+/* Mobile Screens (< 640px) */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 68px 0 20px;
+  }
+
+  .section-main-title {
+    font-size: 1.85rem;
+  }
+
+  /* Header Bar on Mobile: Keep clean with Brand + Hamburger; CV actions accessible in Drawer */
+  .navbar-inner {
+    height: 52px;
+  }
+
+  .nav-cta-desktop {
+    display: none !important;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding-top: 100px;
+    padding-bottom: 36px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.15rem, 8vw, 3.5rem);
+    margin-bottom: 16px;
+  }
+
+  .hero-headline {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-actions .btn-brand-solid,
+  .hero-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-bento-card {
+    padding: 16px;
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  /* Experience Timeline */
+  .experience-timeline {
+    margin-left: 2px;
+    padding-left: 22px;
+    gap: 36px;
+  }
+
+  .timeline-dot {
+    left: -29px;
+  }
+
+  .exp-role {
+    font-size: 1.12rem;
+  }
+
+  .exp-meta {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .exp-summary {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .exp-bullet-item {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .tag-badge {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+
+  /* Showcase */
+  .showcase-preview-wrap {
+    height: 190px;
+  }
+
+  .showcase-content {
+    padding: 18px 14px;
+  }
+
+  .showcase-title {
+    font-size: 1.25rem;
+  }
+
+  .showcase-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .showcase-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .showcase-highlights {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .highlight-row {
+    font-size: 0.83rem;
+    line-height: 1.45;
+  }
+
+  /* Contact Cards */
+  .contact-section-title {
+    font-size: 1.9rem;
+  }
+
+  .contact-card {
+    padding: 20px 16px;
+  }
+
+  .contact-card-btn {
+    font-size: 0.76rem;
+    padding: 10px 12px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px 0;
+    margin-top: 40px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+/* Very Narrow Phones (< 380px) */
+@media (max-width: 380px) {
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .skills-pill-group {
+    grid-template-columns: 1fr;
+  }
+
+  .project-tab-btn {
+    padding: 8px 12px;
+  }
+
+  .tab-project-name {
+    font-size: 0.82rem;
   }
 }
