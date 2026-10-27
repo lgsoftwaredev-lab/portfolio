@@ -79,45 +79,20 @@ export const portfolioData = {
     },
     {
       id: "proj-2",
-      title: "Aetherius",
-      subtitle: "Motor distribuido de orquestación de agentes autónomos",
-      status: "En desarrollo",
-      statusColor: "#10b981",
-      image: "/projects/agent_orchestrator.jpg",
-      description: "Plataforma escalable de orquestación donde agentes inteligentes especializados (Investigación, Clasificación, Validación y Ejecución) colaboran de forma sincrónica y asincrónica para resolver tareas complejas de negocio.",
+      title: "Condo-Management",
+      subtitle: "SaaS B2B de administración de consorcios, liquidación de expensas e IA multimodal",
+      status: "MVP Funcional",
+      statusColor: "#8b5cf6",
+      image: "/projects/condo_management.png",
+      description: "Plataforma B2B integral diseñada para administradores profesionales de consorcios. Automatiza la gestión multi-edificio, padrón de unidades funcionales (UFs), clasificación de gastos según los 10 rubros oficiales de la Ley 941 GCBA y liquidación de expensas con motor de prorrateos, integrando ingesta inteligente de comprobantes mediante IA multimodal.",
       highlights: [
-        "Arquitectura de nodos basados en grafos dirigidos (DAGs) con paralelización de subagentes",
-        "Sistema de memoria híbrida a corto y largo plazo con bases de datos vectoriales",
-        "Mecanismo Human-in-the-loop para autorizar transacciones de riesgo antes de su ejecución",
-        "Monitor en tiempo real de consumo de tokens, latencia de inferencia y tasa de éxito"
+        "Gestión multi-consorcio y padrón granular de UFs (deptos, cocheras, bauleras) con coeficientes de copropiedad A/B/C y saldos",
+        "Módulo de gastos y egresos con auditoría de comprobantes y clasificación estricta bajo los 10 rubros de la Ley 941 GCBA",
+        "AI Invoice Ingestion: extracción automática de CUIT, CAE, importes y clasificación de facturas complejas con Google Gemini",
+        "Backend robusto con NestJS, arquitectura modular, validaciones DTO y persistencia relacional en Oracle Database",
+        "Frontend reactivo de alto rendimiento en React 19, TypeScript y Tailwind CSS con interfaz moderna para administradores"
       ],
-      metrics: [
-        { label: "Latencia", value: "1.8s avg" },
-        { label: "Ejecución", value: "Multi-Agente" },
-        { label: "Guardrails", value: "100% Determinista" }
-      ],
-      tags: ["python", "typescript", "langchain", "fastapi", "redis-vector", "docker", "sse-streaming"]
-    },
-    {
-      id: "proj-3",
-      title: "Core FCI",
-      subtitle: "Engine transaccional bancario de alta disponibilidad",
-      status: "Publicado",
-      statusColor: "#06b6d4",
-      image: "/projects/fintech_core.jpg",
-      description: "Sistema financiero crítico para la suscripción, rescate y cálculo de rendimientos diarios de Fondos Comunes de Inversión (FCI), procesando miles de transacciones por segundo con cero tolerancia a inconsistencias contables.",
-      highlights: [
-        "Procesamiento de eventos en tiempo real con Apache Kafka y semántica 'At-Least-Once' idempotente",
-        "Caché distribuido con Redis para cotizaciones de cuotapartes con respuestas sub-milisegundo",
-        "Validaciones normativas financieras automatizadas contra límites operativos de usuarios y scoring bancario",
-        "Integración resiliente con el core bancario mediante Circuit Breakers y Retry Policies con Dead Letter Queues"
-      ],
-      metrics: [
-        { label: "Throughput", value: "18.5k msg/s" },
-        { label: "Latencia", value: "2.1ms" },
-        { label: "Disponibilidad", value: "99.98%" }
-      ],
-      tags: ["nestjs", "typescript", "apache-kafka", "oracle-db", "redis", "openshift", "event-driven"]
+      tags: ["react", "typescript", "nestjs", "oracle-db", "typeorm", "google-gemini", "tailwind", "rest-api"]
     }
   ],
 
