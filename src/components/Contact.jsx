@@ -92,7 +92,7 @@ export default function Contact() {
               Desafíos y propuestas
             </h3>
             <p className="contact-subtitle-safe">
-              Escribime directamente mediante el formulario. Tu mensaje se enviará de forma cifrada a mi casilla privada correspondiente, manteniendo tus datos y los míos 100% protegidos contra scrapers y spam.
+              Escribime directamente mediante el formulario. Tu mensaje viaja cifrado de punto a punto según buenas prácticas de seguridad (ISO/IEC 27001) y privacidad de datos (ISO/IEC 27701), sin exponer casillas de correo a bots ni scrapers.
             </p>
           </div>
 
@@ -176,6 +176,8 @@ export default function Contact() {
                       type="text"
                       name="name"
                       required
+                      maxLength={100}
+                      autoComplete="name"
                       placeholder="Ej. Roberto Gómez o Tech Solutions"
                       value={formData.name}
                       onChange={handleChange}
@@ -193,6 +195,8 @@ export default function Contact() {
                       type="email"
                       name="email"
                       required
+                      maxLength={150}
+                      autoComplete="email"
                       placeholder="tu-correo@empresa.com"
                       value={formData.email}
                       onChange={handleChange}
@@ -210,6 +214,7 @@ export default function Contact() {
                     id="contact-subject"
                     type="text"
                     name="subject"
+                    maxLength={150}
                     placeholder={category === 'freelance' ? 'Ej. Presupuesto MVP o Integración de IA' : 'Ej. Oportunidad Backend / Full Stack Developer'}
                     value={formData.subject}
                     onChange={handleChange}
@@ -226,6 +231,8 @@ export default function Contact() {
                     id="contact-message"
                     name="message"
                     required
+                    minLength={10}
+                    maxLength={3000}
                     rows={4}
                     placeholder={category === 'freelance' 
                       ? 'Contame sobre tu idea, objetivos del proyecto, plazos estimados o stack técnico deseado...'
@@ -246,7 +253,7 @@ export default function Contact() {
                 <div className="form-footer-row">
                   <div className="form-privacy-note">
                     <ShieldCheck size={16} className="text-emerald" style={{ flexShrink: 0 }} />
-                    <span>Tus datos son privados, viajan encriptados y jamás son expuestos ni compartidos.</span>
+                    <span>Cifrado TLS 1.3 · Minimización de datos (ISO 27701) · Tus datos jamás se comparten con terceros.</span>
                   </div>
 
                   <button
