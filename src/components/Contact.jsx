@@ -128,7 +128,7 @@ export default function Contact() {
               <span>
                 {category === 'freelance' 
                   ? 'Desarrollo a medida, MVPs, integraciones con agentes de IA y consultoría técnica de arquitectura.'
-                  : 'Nuevas oportunidades de ingeniería, posiciones backend / full stack y proyectos de alta criticidad.'}
+                  : 'Oportunidades de incorporación a equipos de desarrollo de software, nuevos desafíos técnicos y proyectos de impacto.'}
               </span>
             </div>
 
