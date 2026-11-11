@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ChevronDown, Briefcase, Cpu, MapPin } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, ChevronDown, Briefcase, Cpu, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Hero() {
@@ -27,13 +27,11 @@ export default function Hero() {
         {/* Action Buttons */}
         <div className="hero-actions">
           <a
-            href={`mailto:${contact.email}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contacto"
             className="btn-brand-solid"
           >
             <span>Iniciar Contacto</span>
-            <ArrowUpRight size={16} />
+            <ArrowDown size={16} />
           </a>
 
           <a
