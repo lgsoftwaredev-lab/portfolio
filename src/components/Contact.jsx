@@ -1,11 +1,25 @@
-import React from 'react';
-import { ArrowUpRight, Briefcase, Building2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, Briefcase, Building2, Copy, Check } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Contact() {
   const { emailFreelance, emailLaboral, email } = portfolioData.personal.contact;
   const freelanceEmail = emailFreelance || "lgsoftwaredev@gmail.com";
   const laboralEmail = emailLaboral || email || "lucasfguimil00@gmail.com";
+
+  const [copiedKey, setCopiedKey] = useState(null);
+
+  const handleCopy = (emailText, key) => {
+    navigator.clipboard.writeText(emailText);
+    setCopiedKey(key);
+    setTimeout(() => {
+      setCopiedKey((curr) => (curr === key ? null : curr));
+    }, 2500);
+  };
+
+  const getGmailComposeUrl = (targetEmail, subject = '') => {
+    return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(targetEmail)}${subject ? `&su=${encodeURIComponent(subject)}` : ''}`;
+  };
 
   return (
     <section id="contacto" className="section">
@@ -37,15 +51,36 @@ export default function Contact() {
               <p className="contact-card-desc">
                 Desarrollo a medida, MVPs, Consultoría Técnica.
               </p>
-              <a 
-                href={`mailto:${freelanceEmail}`}
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="contact-card-btn"
-              >
-                <span className="contact-card-email">{freelanceEmail}</span>
-                <ArrowUpRight size={16} />
-              </a>
+
+              <div className="contact-actions-wrap">
+                <button 
+                  type="button"
+                  onClick={() => handleCopy(freelanceEmail, 'freelance')}
+                  className={`contact-copy-btn ${copiedKey === 'freelance' ? 'copied' : ''}`}
+                  title="Click para copiar email"
+                  aria-label="Copiar email de proyectos freelance"
+                >
+                  <span className="contact-card-email">
+                    {copiedKey === 'freelance' ? '¡Copiado al portapapeles!' : freelanceEmail}
+                  </span>
+                  {copiedKey === 'freelance' ? (
+                    <Check size={15} style={{ color: 'var(--brand-light)', flexShrink: 0 }} />
+                  ) : (
+                    <Copy size={14} style={{ opacity: 0.7, flexShrink: 0 }} />
+                  )}
+                </button>
+
+                <a 
+                  href={getGmailComposeUrl(freelanceEmail, 'Consulta sobre proyecto freelance')}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="contact-gmail-btn"
+                  title="Abrir en Gmail Web"
+                >
+                  <span>Gmail</span>
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
             </div>
 
             {/* Card 2: Propuestas Laborales */}
@@ -59,15 +94,36 @@ export default function Contact() {
               <p className="contact-card-desc">
                 Siempre abierto a conectar y evaluar nuevos desafíos profesionales.
               </p>
-              <a 
-                href={`mailto:${laboralEmail}`}
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="contact-card-btn"
-              >
-                <span className="contact-card-email">{laboralEmail}</span>
-                <ArrowUpRight size={16} />
-              </a>
+
+              <div className="contact-actions-wrap">
+                <button 
+                  type="button"
+                  onClick={() => handleCopy(laboralEmail, 'laboral')}
+                  className={`contact-copy-btn ${copiedKey === 'laboral' ? 'copied' : ''}`}
+                  title="Click para copiar email"
+                  aria-label="Copiar email para propuestas laborales"
+                >
+                  <span className="contact-card-email">
+                    {copiedKey === 'laboral' ? '¡Copiado al portapapeles!' : laboralEmail}
+                  </span>
+                  {copiedKey === 'laboral' ? (
+                    <Check size={15} style={{ color: 'var(--brand-light)', flexShrink: 0 }} />
+                  ) : (
+                    <Copy size={14} style={{ opacity: 0.7, flexShrink: 0 }} />
+                  )}
+                </button>
+
+                <a 
+                  href={getGmailComposeUrl(laboralEmail, 'Contacto por propuesta laboral')}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="contact-gmail-btn"
+                  title="Abrir en Gmail Web"
+                >
+                  <span>Gmail</span>
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1041,7 +1041,16 @@ body {
   flex-grow: 1;
 }
 
-.contact-card-btn {
+.contact-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.contact-copy-btn {
+  flex: 1;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -1054,16 +1063,49 @@ body {
   font-weight: 600;
   padding: 10px 14px;
   border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  word-break: break-all;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
 }
 
-.contact-card-btn:hover {
+.contact-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+.contact-copy-btn.copied {
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.5);
+  color: var(--brand-light);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.2);
+}
+
+.contact-gmail-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--fg-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.contact-gmail-btn:hover {
   background: #ffffff;
   color: #09090b;
   border-color: #ffffff;
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
 }
 
 .contact-card-email {
@@ -1346,9 +1388,14 @@ body {
     padding: 20px 16px;
   }
 
-  .contact-card-btn {
-    font-size: 0.76rem;
-    padding: 10px 12px;
+  .contact-copy-btn {
+    font-size: 0.74rem;
+    padding: 10px 10px;
+  }
+
+  .contact-gmail-btn {
+    font-size: 0.74rem;
+    padding: 10px 10px;
   }
 
   /* Footer */

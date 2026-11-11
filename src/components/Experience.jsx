@@ -45,12 +45,6 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-
-              <div className="tags-row">
-                {exp.skills.map((skill, idx) => (
-                  <span key={idx} className="tag-badge">{skill}</span>
-                ))}
-              </div>
             </li>
           ))}
         </ol>
