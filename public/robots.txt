@@ -1,0 +1,7 @@
+# robots.txt - Lucas Güimil Portfolio
+# Permitir rastreo del sitio pero proteger documentos y endpoints API
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.pdf$
+Disallow: /*.docx$
