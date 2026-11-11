@@ -2,6 +2,25 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Briefcase, Building2, Copy, Check } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
+function GmailIcon({ size = 15 }) {
+  return (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 512 512" 
+      width={size} 
+      height={size}
+      style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}
+      aria-hidden="true"
+    >
+      <path d="M34.9 448h81.5V250.2L0 163v250.2C0 432.5 15.7 448 34.9 448" fill="#4285f4"/>
+      <path d="M395.6 448h81.5c19.3 0 34.9-15.7 34.9-34.9V163l-116.4 87.3" fill="#34a853"/>
+      <path d="M395.6 99v151.3L512 163v-46.5c0-43.2-49.3-67.8-83.8-41.9" fill="#fbbc04"/>
+      <path d="M116.4 250.2V99L256 203.7 395.6 99v151.3L256 355" fill="#ea4335"/>
+      <path d="M0 116.4V163l116.4 87.3V99L83.8 74.5C49.2 48.6 0 73.2 0 116.4" fill="#c5221f"/>
+    </svg>
+  );
+}
+
 export default function Contact() {
   const { emailFreelance, emailLaboral, email } = portfolioData.personal.contact;
   const freelanceEmail = emailFreelance || "lgsoftwaredev@gmail.com";
@@ -77,8 +96,9 @@ export default function Contact() {
                   className="contact-gmail-btn"
                   title="Abrir en Gmail Web"
                 >
+                  <GmailIcon size={14} />
                   <span>Gmail</span>
-                  <ArrowUpRight size={14} />
+                  <ArrowUpRight size={13} style={{ opacity: 0.7 }} />
                 </a>
               </div>
             </div>
@@ -120,8 +140,9 @@ export default function Contact() {
                   className="contact-gmail-btn"
                   title="Abrir en Gmail Web"
                 >
+                  <GmailIcon size={14} />
                   <span>Gmail</span>
-                  <ArrowUpRight size={14} />
+                  <ArrowUpRight size={13} style={{ opacity: 0.7 }} />
                 </a>
               </div>
             </div>
