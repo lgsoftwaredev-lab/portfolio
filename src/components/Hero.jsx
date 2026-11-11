@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, ArrowUpRight, ChevronDown, Briefcase, Cpu, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { smoothScrollTo } from '../utils/scroll';
 
 export default function Hero() {
   const { fullName, role, contact } = portfolioData.personal;
@@ -28,6 +29,10 @@ export default function Hero() {
         <div className="hero-actions">
           <a
             href="#contacto"
+            onClick={(e) => {
+              e.preventDefault();
+              smoothScrollTo('contacto', 1100);
+            }}
             className="btn-brand-solid"
           >
             <span>Iniciar Contacto</span>
@@ -80,7 +85,15 @@ export default function Hero() {
         </div>
 
         {/* Subtle Scroll Indicator */}
-        <a href="#experiencia" aria-label="Ver experiencia" className="hero-scroll-link">
+        <a 
+          href="#experiencia" 
+          onClick={(e) => {
+            e.preventDefault();
+            smoothScrollTo('experiencia', 600);
+          }}
+          aria-label="Ver experiencia" 
+          className="hero-scroll-link"
+        >
           <span>scroll</span>
           <ChevronDown size={14} className="bounce-arrow" />
         </a>

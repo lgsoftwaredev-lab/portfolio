@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Menu, X, FileText } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { smoothScrollTo } from '../utils/scroll';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,11 +32,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    smoothScrollTo(targetId, targetId === 'contacto' ? 1000 : 800);
+  };
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-inner">
         {/* Brand: lucas.güimil() */}
-        <a href="#top" className="nav-brand" onClick={() => setMobileOpen(false)}>
+        <a href="#top" className="nav-brand" onClick={(e) => handleNavClick(e, 'top')}>
           <span className="brand-dot"></span>
           <span className="brand-text">lucas.güimil()</span>
         </a>
@@ -45,6 +52,7 @@ export default function Navbar() {
           <li>
             <a 
               href="#experiencia" 
+              onClick={(e) => handleNavClick(e, 'experiencia')}
               className={`nav-item-link ${activeSection === 'experiencia' ? 'active' : ''}`}
             >
               Experiencia
@@ -53,6 +61,7 @@ export default function Navbar() {
           <li>
             <a 
               href="#proyectos" 
+              onClick={(e) => handleNavClick(e, 'proyectos')}
               className={`nav-item-link ${activeSection === 'proyectos' ? 'active' : ''}`}
             >
               Proyectos
@@ -61,6 +70,7 @@ export default function Navbar() {
           <li>
             <a 
               href="#habilidades" 
+              onClick={(e) => handleNavClick(e, 'habilidades')}
               className={`nav-item-link ${activeSection === 'habilidades' ? 'active' : ''}`}
             >
               Habilidades
@@ -69,6 +79,7 @@ export default function Navbar() {
           <li>
             <a 
               href="#contacto" 
+              onClick={(e) => handleNavClick(e, 'contacto')}
               className={`nav-item-link ${activeSection === 'contacto' ? 'active' : ''}`}
             >
               Contacto
@@ -126,10 +137,10 @@ export default function Navbar() {
           flexDirection: 'column',
           gap: '12px'
         }}>
-          <a href="#experiencia" className="nav-item-link" onClick={() => setMobileOpen(false)}>Experiencia</a>
-          <a href="#proyectos" className="nav-item-link" onClick={() => setMobileOpen(false)}>Proyectos</a>
-          <a href="#habilidades" className="nav-item-link" onClick={() => setMobileOpen(false)}>Habilidades</a>
-          <a href="#contacto" className="nav-item-link" onClick={() => setMobileOpen(false)}>Contacto</a>
+          <a href="#experiencia" className="nav-item-link" onClick={(e) => handleNavClick(e, 'experiencia')}>Experiencia</a>
+          <a href="#proyectos" className="nav-item-link" onClick={(e) => handleNavClick(e, 'proyectos')}>Proyectos</a>
+          <a href="#habilidades" className="nav-item-link" onClick={(e) => handleNavClick(e, 'habilidades')}>Habilidades</a>
+          <a href="#contacto" className="nav-item-link" onClick={(e) => handleNavClick(e, 'contacto')}>Contacto</a>
           <div style={{ display: 'flex', gap: '8px', paddingTop: '8px', borderTop: '1px solid var(--border-subtle)' }}>
             <a 
               href="/CV-Lucas-Guimil-ATS.docx" 
