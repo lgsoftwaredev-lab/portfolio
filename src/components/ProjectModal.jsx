@@ -71,7 +71,8 @@ export default function ProjectModal({ project, onClose }) {
               Volver al Portfolio
             </button>
             <a 
-              href="mailto:lucasfguimil00@gmail.com?subject=Consulta%20sobre%20proyecto%20" 
+              href="#contacto" 
+              onClick={onClose}
               className="btn-primary" 
               style={{ flex: 1, justifyContent: 'center' }}
             >

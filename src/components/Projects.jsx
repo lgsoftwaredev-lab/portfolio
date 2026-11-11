@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { smoothScrollTo } from '../utils/scroll';
 
 export default function Projects() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -108,14 +109,16 @@ export default function Projects() {
               </div>
 
               <a 
-                href={`mailto:${portfolioData.personal.contact.email}?subject=Consulta%20sobre%20${encodeURIComponent(currentProject.title)}`}
-                target="_blank" 
-                rel="noopener noreferrer" 
+                href="#contacto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo('contacto', 950);
+                }}
                 className="btn-outline"
                 style={{ justifyContent: 'center' }}
               >
                 <span>Consultar sobre este proyecto</span>
-                <ArrowUpRight size={15} />
+                <ArrowDown size={15} />
               </a>
             </div>
           </div>

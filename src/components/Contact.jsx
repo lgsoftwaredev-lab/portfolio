@@ -1,43 +1,77 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Briefcase, Building2, Copy, Check } from 'lucide-react';
+import { Send, CheckCircle2, ShieldCheck, Briefcase, Building2, ArrowUpRight, Loader2 } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { portfolioData } from '../data/portfolioData';
 
-function GmailIcon({ size = 15 }) {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 512 512" 
-      width={size} 
-      height={size}
-      style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}
-      aria-hidden="true"
-    >
-      <path d="M34.9 448h81.5V250.2L0 163v250.2C0 432.5 15.7 448 34.9 448" fill="#4285f4"/>
-      <path d="M395.6 448h81.5c19.3 0 34.9-15.7 34.9-34.9V163l-116.4 87.3" fill="#34a853"/>
-      <path d="M395.6 99v151.3L512 163v-46.5c0-43.2-49.3-67.8-83.8-41.9" fill="#fbbc04"/>
-      <path d="M116.4 250.2V99L256 203.7 395.6 99v151.3L256 355" fill="#ea4335"/>
-      <path d="M0 116.4V163l116.4 87.3V99L83.8 74.5C49.2 48.6 0 73.2 0 116.4" fill="#c5221f"/>
-    </svg>
-  );
-}
-
 export default function Contact() {
-  const { emailFreelance, emailLaboral, email } = portfolioData.personal.contact;
-  const freelanceEmail = emailFreelance || "lgsoftwaredev@gmail.com";
-  const laboralEmail = emailLaboral || email || "lucasfguimil00@gmail.com";
+  const [category, setCategory] = useState('freelance'); // 'freelance' | 'laboral'
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    botcheck: ''
+  });
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const [copiedKey, setCopiedKey] = useState(null);
-
-  const handleCopy = (emailText, key) => {
-    navigator.clipboard.writeText(emailText);
-    setCopiedKey(key);
-    setTimeout(() => {
-      setCopiedKey((curr) => (curr === key ? null : curr));
-    }, 2500);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const getGmailComposeUrl = (targetEmail, subject = '') => {
-    return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(targetEmail)}${subject ? `&su=${encodeURIComponent(subject)}` : ''}`;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          type: category
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        setStatus('success');
+        try {
+          confetti({
+            particleCount: 75,
+            spread: 65,
+            origin: { y: 0.65 }
+          });
+        } catch {
+          // ignore confetti if canvas unsupported
+        }
+      } else {
+        setStatus('error');
+        setErrorMessage(data.message || 'Ocurrió un error al enviar el mensaje. Por favor intentá de nuevo.');
+      }
+    } catch {
+      setStatus('error');
+      setErrorMessage('No se pudo establecer conexión. Por favor intentá nuevamente o contactame por LinkedIn.');
+    }
+  };
+
+  const handleReset = () => {
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+      botcheck: ''
+    });
+    setStatus('idle');
   };
 
   return (
@@ -53,99 +87,203 @@ export default function Contact() {
         </div>
 
         <div className="contact-section-inner">
-          <h3 className="contact-big-title">
-            Desafíos y propuestas
-          </h3>
+          <div className="contact-header-text">
+            <h3 className="contact-big-title">
+              Desafíos y propuestas
+            </h3>
+            <p className="contact-subtitle-safe">
+              Escribime directamente mediante el formulario. Tu mensaje se enviará de forma cifrada a mi casilla privada correspondiente, manteniendo tus datos y los míos 100% protegidos contra scrapers y spam.
+            </p>
+          </div>
 
-          {/* 2 Contact Cards */}
-          <div className="contact-cards-grid">
-            {/* Card 1: Freelance */}
-            <div className="contact-card">
-              <div className="contact-card-header">
-                <div className="contact-card-icon-wrap freelance">
-                  <Briefcase size={20} />
-                </div>
-              </div>
-              <h4 className="contact-card-title">Contacto freelance</h4>
-              <p className="contact-card-desc">
-                Desarrollo a medida, MVPs, Consultoría Técnica.
-              </p>
+          <div className="contact-form-card">
+            {/* Category Selector Tabs */}
+            <div className="contact-type-selector" role="tablist" aria-label="Tipo de contacto">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={category === 'freelance'}
+                onClick={() => setCategory('freelance')}
+                className={`contact-type-btn ${category === 'freelance' ? 'active' : ''}`}
+              >
+                <Briefcase size={16} />
+                <span>Contacto freelance</span>
+              </button>
 
-              <div className="contact-actions-wrap">
-                <button 
-                  type="button"
-                  onClick={() => handleCopy(freelanceEmail, 'freelance')}
-                  className={`contact-copy-btn ${copiedKey === 'freelance' ? 'copied' : ''}`}
-                  title="Click para copiar email"
-                  aria-label="Copiar email de proyectos freelance"
-                >
-                  <span className="contact-card-email">
-                    {copiedKey === 'freelance' ? '¡Copiado al portapapeles!' : freelanceEmail}
-                  </span>
-                  {copiedKey === 'freelance' ? (
-                    <Check size={15} style={{ color: 'var(--brand-light)', flexShrink: 0 }} />
-                  ) : (
-                    <Copy size={14} style={{ opacity: 0.7, flexShrink: 0 }} />
-                  )}
-                </button>
-
-                <a 
-                  href={getGmailComposeUrl(freelanceEmail, 'Consulta sobre proyecto freelance')}
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="contact-gmail-btn"
-                  title="Abrir en Gmail Web"
-                >
-                  <GmailIcon size={14} />
-                  <span>Gmail</span>
-                  <ArrowUpRight size={13} style={{ opacity: 0.7 }} />
-                </a>
-              </div>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={category === 'laboral'}
+                onClick={() => setCategory('laboral')}
+                className={`contact-type-btn ${category === 'laboral' ? 'active' : ''}`}
+              >
+                <Building2 size={16} />
+                <span>Propuesta laboral</span>
+              </button>
             </div>
 
-            {/* Card 2: Propuestas Laborales */}
-            <div className="contact-card">
-              <div className="contact-card-header">
-                <div className="contact-card-icon-wrap laboral">
-                  <Building2 size={20} />
-                </div>
-              </div>
-              <h4 className="contact-card-title">Contacto por propuestas laborales</h4>
-              <p className="contact-card-desc">
-                Siempre abierto a conectar y evaluar nuevos desafíos profesionales.
-              </p>
-
-              <div className="contact-actions-wrap">
-                <button 
-                  type="button"
-                  onClick={() => handleCopy(laboralEmail, 'laboral')}
-                  className={`contact-copy-btn ${copiedKey === 'laboral' ? 'copied' : ''}`}
-                  title="Click para copiar email"
-                  aria-label="Copiar email para propuestas laborales"
-                >
-                  <span className="contact-card-email">
-                    {copiedKey === 'laboral' ? '¡Copiado al portapapeles!' : laboralEmail}
-                  </span>
-                  {copiedKey === 'laboral' ? (
-                    <Check size={15} style={{ color: 'var(--brand-light)', flexShrink: 0 }} />
-                  ) : (
-                    <Copy size={14} style={{ opacity: 0.7, flexShrink: 0 }} />
-                  )}
-                </button>
-
-                <a 
-                  href={getGmailComposeUrl(laboralEmail, 'Contacto por propuesta laboral')}
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="contact-gmail-btn"
-                  title="Abrir en Gmail Web"
-                >
-                  <GmailIcon size={14} />
-                  <span>Gmail</span>
-                  <ArrowUpRight size={13} style={{ opacity: 0.7 }} />
-                </a>
-              </div>
+            {/* Category Context Banner */}
+            <div className="contact-category-info">
+              <span className="category-info-dot"></span>
+              <span>
+                {category === 'freelance' 
+                  ? 'Desarrollo a medida, MVPs, integraciones con agentes de IA y consultoría técnica de arquitectura.'
+                  : 'Nuevas oportunidades de ingeniería, posiciones backend / full stack y proyectos de alta criticidad.'}
+              </span>
             </div>
+
+            {status === 'success' ? (
+              /* Success State */
+              <div className="contact-success-state">
+                <div className="success-icon-wrap">
+                  <CheckCircle2 size={44} className="text-emerald" />
+                </div>
+                <h4 className="success-title">¡Mensaje enviado con éxito!</h4>
+                <p className="success-desc">
+                  Muchas gracias por escribirme, <strong>{formData.name}</strong>. El mensaje fue entregado de manera segura en mi casilla y te responderé a <strong>{formData.email}</strong> a la brevedad.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="btn-outline"
+                  style={{ marginTop: '16px' }}
+                >
+                  <span>Enviar otro mensaje</span>
+                </button>
+              </div>
+            ) : (
+              /* Contact Form */
+              <form onSubmit={handleSubmit} className="contact-form">
+                {/* Honeypot field (hidden from humans, catches bots) */}
+                <input
+                  type="text"
+                  name="botcheck"
+                  value={formData.botcheck}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{ display: 'none' }}
+                  aria-hidden="true"
+                />
+
+                <div className="form-grid-two">
+                  <div className="form-group">
+                    <label htmlFor="contact-name" className="form-label">
+                      Tu nombre o empresa <span className="text-required">*</span>
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Ej. Roberto Gómez o Tech Solutions"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="form-input"
+                      disabled={status === 'loading'}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="contact-email" className="form-label">
+                      Tu email de respuesta <span className="text-required">*</span>
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="tu-correo@empresa.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="form-input"
+                      disabled={status === 'loading'}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="contact-subject" className="form-label">
+                    Asunto o contexto <span className="label-optional">(opcional)</span>
+                  </label>
+                  <input
+                    id="contact-subject"
+                    type="text"
+                    name="subject"
+                    placeholder={category === 'freelance' ? 'Ej. Presupuesto MVP o Integración de IA' : 'Ej. Oportunidad Backend / Full Stack Developer'}
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="form-input"
+                    disabled={status === 'loading'}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="contact-message" className="form-label">
+                    Mensaje o propuesta <span className="text-required">*</span>
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    rows={4}
+                    placeholder={category === 'freelance' 
+                      ? 'Contame sobre tu idea, objetivos del proyecto, plazos estimados o stack técnico deseado...'
+                      : 'Contame sobre el rol, los desafíos técnicos del equipo, modalidad y propuesta...'}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="form-textarea"
+                    disabled={status === 'loading'}
+                  />
+                </div>
+
+                {status === 'error' && (
+                  <div className="form-error-banner" role="alert">
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                <div className="form-footer-row">
+                  <div className="form-privacy-note">
+                    <ShieldCheck size={16} className="text-emerald" style={{ flexShrink: 0 }} />
+                    <span>Tus datos son privados, viajan encriptados y jamás son expuestos ni compartidos.</span>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="btn-brand-solid contact-submit-btn"
+                  >
+                    {status === 'loading' ? (
+                      <>
+                        <Loader2 size={16} className="spinner-icon" />
+                        <span>Enviando...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Enviar Mensaje</span>
+                        <Send size={15} />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {/* Social Alternative */}
+          <div className="contact-social-row">
+            <span style={{ fontSize: '0.86rem', color: 'var(--fg-muted)' }}>¿Preferís conectar por red profesional?</span>
+            <a 
+              href={portfolioData.personal.contact.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link"
+              style={{ color: '#ffffff' }}
+            >
+              <span>LinkedIn</span>
+              <ArrowUpRight size={14} />
+            </a>
           </div>
         </div>
       </div>
