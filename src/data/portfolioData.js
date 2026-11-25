@@ -61,8 +61,8 @@ export const portfolioData = {
       id: "proj-1",
       title: "ArmorCut PPF",
       subtitle: "SaaS de gestión de stock, bobinas y consumibles para detailing vehicular",
-      status: "En producción",
-      statusColor: "#10b981",
+      status: "MVP Funcional",
+      statusColor: "#8b5cf6",
       image: "/projects/armorcut_ppf.png",
       description: "Plataforma SaaS full-stack diseñada a medida para talleres y centros de detailing vehicular. Especializada en la administración y fraccionamiento de bobinas de PPF (Paint Protection Film) con cálculo de metros lineales y control de desperdicio, integrando además módulos de stock para consumibles (shampoo neutro, revividores, selladores cerámicos y tratamientos).",
       highlights: [
